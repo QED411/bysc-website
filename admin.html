@@ -106,6 +106,12 @@
             <p>Step-by-step instructions for board members</p>
             <span class="admin-link-action">View Below <i class="fas fa-arrow-down"></i></span>
           </a>
+          <a href="#website-guide" class="admin-link-card">
+            <div class="admin-link-icon"><i class="fas fa-edit"></i></div>
+            <h3>Update the Website</h3>
+            <p>How to edit content, upload docs &amp; deploy changes</p>
+            <span class="admin-link-action">View Below <i class="fas fa-arrow-down"></i></span>
+          </a>
         </div>
       </div>
     </section>
@@ -421,6 +427,101 @@
             <p>Player registration, background checks, Safe Haven compliance</p>
             <span class="contact-placeholder">Update with current officer</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Update the Website -->
+    <section class="admin-section" id="website-guide">
+      <div class="container">
+        <div class="section-header" style="text-align:left;">
+          <span class="section-tag">For All Board Members</span>
+          <h2>How to Update the Website</h2>
+          <p style="text-align:left; margin:0;">The site is hosted on <strong>Vercel</strong> and the source code lives on <strong>GitHub</strong>. Any board member with access can make edits directly in their browser &mdash; no coding tools needed.</p>
+        </div>
+
+        <div class="admin-instructions">
+
+          <div class="instruction-card">
+            <div class="instruction-number"><i class="fab fa-github" style="font-size:1rem;"></i></div>
+            <div class="instruction-body">
+              <h4>Step 1: Log into GitHub</h4>
+              <p>Go to <a href="https://github.com" target="_blank">github.com</a> and sign in with your account. If you don't have access yet, ask the webmaster to invite you as a collaborator on the BYSC repository.</p>
+            </div>
+          </div>
+
+          <div class="instruction-card">
+            <div class="instruction-number"><i class="fas fa-folder-open" style="font-size:0.9rem;"></i></div>
+            <div class="instruction-body">
+              <h4>Step 2: Navigate to the File You Want to Edit</h4>
+              <p>Open the BYSC repository. You'll see all the site files:</p>
+              <ul class="checklist">
+                <li><i class="fas fa-file-code"></i> <code>index.html</code> &mdash; The main public website (announcements, programs, FAQ, fields, etc.)</li>
+                <li><i class="fas fa-file-code"></i> <code>admin.html</code> &mdash; This admin portal page</li>
+                <li><i class="fas fa-folder"></i> <code>docs/</code> &mdash; PDF documents (incorporation, insurance, etc.)</li>
+                <li><i class="fas fa-palette"></i> <code>styles.css</code> &mdash; Visual styling (colors, layout &mdash; only edit if you know CSS)</li>
+                <li><i class="fas fa-cog"></i> <code>script.js</code> &mdash; Interactive features (only edit if you know JavaScript)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="instruction-card">
+            <div class="instruction-number"><i class="fas fa-pencil-alt" style="font-size:0.9rem;"></i></div>
+            <div class="instruction-body">
+              <h4>Step 3: Edit the File</h4>
+              <p>Click on the file, then click the <strong>pencil icon</strong> (top right) to enter edit mode. Make your changes directly in the browser. Common tasks:</p>
+              <ul class="checklist">
+                <li><i class="fas fa-bullhorn"></i> <strong>Update an announcement:</strong> Search for <code>ticker-item</code> in <code>index.html</code> and change the text</li>
+                <li><i class="fas fa-question-circle"></i> <strong>Edit a FAQ answer:</strong> Search for the question text and update the <code>&lt;p&gt;</code> below it</li>
+                <li><i class="fas fa-calendar"></i> <strong>Change season dates:</strong> Search for the date text (e.g. "2025/26") and replace it</li>
+                <li><i class="fas fa-link"></i> <strong>Update a link:</strong> Find the <code>href="..."</code> and change the URL inside the quotes</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="instruction-card">
+            <div class="instruction-number"><i class="fas fa-save" style="font-size:0.9rem;"></i></div>
+            <div class="instruction-body">
+              <h4>Step 4: Commit Your Changes</h4>
+              <p>Scroll down and you'll see a "Commit changes" section. Write a short description of what you changed (e.g. "Updated fall season dates") and click <strong>"Commit changes"</strong>. That's it &mdash; Vercel will automatically deploy the updated site within 30 seconds.</p>
+            </div>
+          </div>
+
+          <div class="instruction-card">
+            <div class="instruction-number"><i class="fas fa-file-upload" style="font-size:0.9rem;"></i></div>
+            <div class="instruction-body">
+              <h4>Uploading Documents (PDFs)</h4>
+              <p>To add or replace a PDF in the <code>docs/</code> folder:</p>
+              <ol class="checklist" style="counter-reset:none;">
+                <li><i class="fas fa-check-square"></i> Navigate to the <code>docs/</code> folder in the GitHub repo</li>
+                <li><i class="fas fa-check-square"></i> Click <strong>"Add file"</strong> &rarr; <strong>"Upload files"</strong></li>
+                <li><i class="fas fa-check-square"></i> Drag and drop your PDF, then click <strong>"Commit changes"</strong></li>
+              </ol>
+              <p>If you're replacing an existing file, use the exact same filename and it will overwrite.</p>
+            </div>
+          </div>
+
+          <div class="instruction-card">
+            <div class="instruction-number"><i class="fas fa-undo" style="font-size:0.9rem;"></i></div>
+            <div class="instruction-body">
+              <h4>Made a Mistake? Revert It</h4>
+              <p>Every change is tracked in GitHub's commit history. If something goes wrong, click <strong>"History"</strong> on any file to see all past versions and revert to a previous one. Nothing is permanent &mdash; you can always undo.</p>
+            </div>
+          </div>
+
+          <div class="instruction-card" style="border-color: var(--orange-300); background: #fff8f3;">
+            <div class="instruction-number" style="background: var(--orange-400);"><i class="fas fa-exclamation-triangle" style="font-size:0.9rem;"></i></div>
+            <div class="instruction-body">
+              <h4>What NOT to Change (Unless You Know What You're Doing)</h4>
+              <ul class="checklist">
+                <li><i class="fas fa-times-circle" style="color:var(--orange-500);"></i> <code>styles.css</code> &mdash; Controls all visual styling. Bad edits can break the layout.</li>
+                <li><i class="fas fa-times-circle" style="color:var(--orange-500);"></i> <code>script.js</code> &mdash; Controls interactive features. Syntax errors will break functionality.</li>
+                <li><i class="fas fa-times-circle" style="color:var(--orange-500);"></i> HTML structure tags (<code>&lt;div&gt;</code>, <code>&lt;section&gt;</code>, <code>class="..."</code>) &mdash; Only change the text <em>between</em> tags, not the tags themselves.</li>
+              </ul>
+              <p>Stick to updating <strong>text content, links, and documents</strong> and you'll be fine. For layout or design changes, ask the webmaster.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
