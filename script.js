@@ -46,14 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---- Subscribe Form ----
-  const subscribeForm = document.getElementById('subscribeForm');
-  subscribeForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    showToast('Thanks for subscribing! You\'ll receive updates soon.');
-    subscribeForm.reset();
-  });
-
   // ---- Toast Notifications ----
   function showToast(message) {
     const existing = document.querySelector('.toast');
@@ -77,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Scroll-triggered Animations ----
   const animateOnScroll = () => {
     const elements = document.querySelectorAll(
-      '.quick-link-card, .program-card, .feed-card, .gear-item, .field-card, .accordion-item, .faq-column-title'
+      '.program-card, .feed-card, .accordion-item, .faq-column-title'
     );
 
     const observer = new IntersectionObserver((entries) => {
@@ -112,11 +104,8 @@ style.textContent = `
   .animate-in {
     animation: fadeInUp 0.5s ease forwards;
   }
-  .quick-link-card,
   .program-card,
   .feed-card,
-  .gear-item,
-  .field-card,
   .accordion-item,
   .faq-column-title {
     opacity: 0;
