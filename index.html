@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briarcliff Youth Soccer Club | BYSC</title>
+  <link rel="icon" type="image/png" href="bysc-logo.png">
+  <link rel="apple-touch-icon" href="bysc-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <span><i class="fas fa-map-marker-alt"></i> Briarcliff Manor, NY</span>
+      <div class="top-bar-links">
+        <a href="https://www.ayso202.org/" target="_blank">AYSO Region 202</a>
+        <a href="https://www.wyslsoccer.org/" target="_blank">WYSL</a>
+        <a href="mailto:info@briarcliffsoccer.org"><i class="fas fa-envelope"></i> Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <img src="bysc-logo.png" alt="BYSC Logo" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-main">BYSC</span>
+          <span class="logo-sub">Briarcliff Youth Soccer</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li class="dropdown">
+          <a href="#programs">Programs <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#ayso">AYSO Program</a></li>
+            <li><a href="#travel">Travel Soccer</a></li>
+          </ul>
+        </li>
+        <li><a href="#feed">News & Photos</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#fields">Fields</a></li>
+        <li><a href="#subscribe">Subscribe</a></li>
+        <li><a href="admin.html"><i class="fas fa-lock"></i> Admin</a></li>
+        <li><a href="https://www.ayso202.org/" target="_blank" class="btn btn-nav">Register Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="bysc-logo.png" alt="BYSC Crest" class="hero-crest">
+      <div class="hero-badge">Est. Briarcliff Manor, NY</div>
+      <h1>Briarcliff Youth<br>Soccer Club</h1>
+      <p>A non-profit, volunteer-run organization offering a positive, enriching, year-round soccer experience for every player ability level.</p>
+      <div class="hero-buttons">
+        <a href="https://www.ayso202.org/" target="_blank" class="btn btn-accent btn-lg">
+          <i class="fas fa-user-plus"></i> Register for 2025/26
+        </a>
+        <a href="#programs" class="btn btn-outline btn-lg">
+          <i class="fas fa-info-circle"></i> Our Programs
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">6</span>
+          <span class="stat-label">AYSO Philosophies</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">Pre-K+</span>
+          <span class="stat-label">Ages Welcome</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">Year</span>
+          <span class="stat-label">Round Play</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <a href="#announcements"><i class="fas fa-chevron-down"></i></a>
+    </div>
+  </header>
+
+  <!-- Announcements Banner -->
+  <section class="announcements" id="announcements">
+    <div class="container">
+      <div class="announcement-ticker">
+        <div class="announcement-label"><i class="fas fa-bullhorn"></i> News</div>
+        <div class="ticker-wrap">
+          <div class="ticker">
+            <span class="ticker-item">Fall 2025/2026 Registration is NOW OPEN at ayso202.org</span>
+            <span class="ticker-item">Travel Soccer tryouts coming in June &mdash; U-10 through U-14 boys &amp; girls</span>
+            <span class="ticker-item">Volunteer coaches needed! No soccer experience required.</span>
+            <span class="ticker-item">Season runs from after Labor Day into early November</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="quick-links">
+    <div class="container">
+      <div class="quick-links-grid">
+        <a href="https://www.ayso202.org/" target="_blank" class="quick-link-card">
+          <div class="ql-icon"><i class="fas fa-clipboard-list"></i></div>
+          <h3>Register Now</h3>
+          <p>Sign up for Fall 2025/26</p>
+        </a>
+        <a href="#ayso" class="quick-link-card">
+          <div class="ql-icon"><i class="fas fa-futbol"></i></div>
+          <h3>AYSO Program</h3>
+          <p>Ages Pre-K through 8th</p>
+        </a>
+        <a href="#travel" class="quick-link-card">
+          <div class="ql-icon"><i class="fas fa-trophy"></i></div>
+          <h3>Travel Soccer</h3>
+          <p>WYSL competitive play</p>
+        </a>
+        <a href="#fields" class="quick-link-card">
+          <div class="ql-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h3>Find Our Fields</h3>
+          <p>Directions &amp; maps</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section class="programs" id="programs">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Programs</span>
+        <h2>Something for Every Player</h2>
+        <p>From recreational to competitive, BYSC provides soccer opportunities for all skill levels.</p>
+      </div>
+      <div class="programs-grid">
+        <!-- AYSO -->
+        <div class="program-card" id="ayso">
+          <div class="program-card-header ayso-header">
+            <div class="program-badge">AYSO</div>
+            <h3>Recreational Program</h3>
+            <p class="program-price">~$300 <span>/ year</span></p>
+          </div>
+          <div class="program-card-body">
+            <p>Our AYSO core program delivers a prescriptive soccer experience for players of all abilities.</p>
+            <ul class="program-features">
+              <li><i class="fas fa-check-circle"></i> Everyone Plays</li>
+              <li><i class="fas fa-check-circle"></i> Balanced Teams</li>
+              <li><i class="fas fa-check-circle"></i> Open Registration</li>
+              <li><i class="fas fa-check-circle"></i> Positive Coaching</li>
+              <li><i class="fas fa-check-circle"></i> Good Sportsmanship</li>
+              <li><i class="fas fa-check-circle"></i> Player Development</li>
+            </ul>
+            <div class="program-details">
+              <div class="detail"><i class="fas fa-calendar"></i> Practices: Saturdays</div>
+              <div class="detail"><i class="fas fa-calendar-check"></i> Games: Sundays</div>
+              <div class="detail"><i class="fas fa-child"></i> Ages: Pre-K 3s &amp; up</div>
+              <div class="detail"><i class="fas fa-chalkboard-teacher"></i> Professional trainers</div>
+            </div>
+            <a href="https://www.ayso202.org/" target="_blank" class="btn btn-primary btn-block">Register for AYSO</a>
+          </div>
+        </div>
+        <!-- Travel -->
+        <div class="program-card featured" id="travel">
+          <div class="program-card-header travel-header">
+            <div class="program-badge">WYSL</div>
+            <h3>Travel Soccer</h3>
+            <p class="program-price">~$900 <span>/ year</span></p>
+          </div>
+          <div class="program-card-body">
+            <p>Competitive travel play in the Westchester Youth Soccer League for select players.</p>
+            <ul class="program-features">
+              <li><i class="fas fa-check-circle"></i> Tryout-based selection</li>
+              <li><i class="fas fa-check-circle"></i> 2 practices per week + Saturday</li>
+              <li><i class="fas fa-check-circle"></i> Games on Sundays</li>
+              <li><i class="fas fa-check-circle"></i> Boys &amp; girls teams</li>
+              <li><i class="fas fa-check-circle"></i> U-10 through U-14</li>
+              <li><i class="fas fa-check-circle"></i> Westchester-wide competition</li>
+            </ul>
+            <div class="program-details">
+              <div class="detail"><i class="fas fa-users"></i> 10&ndash;14 players per team</div>
+              <div class="detail"><i class="fas fa-birthday-cake"></i> Calendar year birthdates</div>
+              <div class="detail"><i class="fas fa-route"></i> Westchester &amp; surrounding</div>
+              <div class="detail"><i class="fas fa-user-tie"></i> 3rd-party tryout evaluation</div>
+            </div>
+            <a href="#faq-travel" class="btn btn-primary btn-block">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News, Social & Photo Feed -->
+  <section class="feed-section" id="feed">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Stay Connected</span>
+        <h2>News, Social & Community Photos</h2>
+        <p>Follow the latest from US Soccer, share your game-day photos, and stay in the loop.</p>
+      </div>
+      <div class="feed-layout">
+        <!-- Left: Social Feeds -->
+        <div class="social-feeds">
+          <div class="feed-card">
+            <div class="feed-card-header">
+              <i class="fab fa-x-twitter"></i>
+              <h3>US Soccer</h3>
+            </div>
+            <div class="twitter-embed">
+              <a class="twitter-timeline"
+                 data-height="480"
+                 data-theme="light"
+                 data-chrome="noheader nofooter noborders"
+                 href="https://twitter.com/ussoccer">
+                Loading US Soccer feed&hellip;
+              </a>
+            </div>
+          </div>
+          <div class="feed-card">
+            <div class="feed-card-header">
+              <i class="fab fa-x-twitter"></i>
+              <h3>US Youth Soccer</h3>
+            </div>
+            <div class="twitter-embed">
+              <a class="twitter-timeline"
+                 data-height="480"
+                 data-theme="light"
+                 data-chrome="noheader nofooter noborders"
+                 href="https://twitter.com/USYouthSoccer">
+                Loading US Youth Soccer feed&hellip;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Community Photo Feed -->
+        <div class="community-feed">
+          <div class="feed-card photo-feed-card">
+            <div class="feed-card-header">
+              <i class="fas fa-camera"></i>
+              <h3>Community Photos</h3>
+            </div>
+
+            <!-- Photo Upload -->
+            <div class="photo-upload-area" id="photoUploadArea">
+              <div class="upload-prompt" id="uploadPrompt">
+                <input type="file" id="photoInput" accept="image/*" multiple hidden>
+                <button class="upload-btn" id="uploadBtn">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                  <span>Share Your Game Day Photos</span>
+                </button>
+                <p class="upload-hint">Click or drag &amp; drop photos here</p>
+              </div>
+              <div class="upload-preview" id="uploadPreview" hidden>
+                <div class="preview-images" id="previewImages"></div>
+                <div class="upload-form">
+                  <input type="text" id="photoCaption" placeholder="Add a caption (e.g. 'U-10 game vs Pleasantville')" class="caption-input">
+                  <input type="text" id="photoAuthor" placeholder="Your name" class="caption-input">
+                  <div class="upload-actions">
+                    <button class="btn btn-primary" id="postPhotoBtn">
+                      <i class="fas fa-paper-plane"></i> Post to Feed
+                    </button>
+                    <button class="btn btn-secondary" id="cancelUploadBtn">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Photo Feed -->
+            <div class="photo-feed" id="photoFeed">
+              <!-- Sample posts for demonstration -->
+              <div class="photo-post">
+                <div class="post-header">
+                  <div class="post-avatar">JD</div>
+                  <div class="post-meta">
+                    <strong>Jane D.</strong>
+                    <span>2 hours ago</span>
+                  </div>
+                </div>
+                <div class="post-image" style="background: linear-gradient(135deg, #1b3a66 0%, #244d82 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:1.1rem;">
+                  <div style="text-align:center; padding:2rem;">
+                    <i class="fas fa-futbol" style="font-size:3rem; margin-bottom:1rem; opacity:0.7;"></i>
+                    <p>Upload your first photo!</p>
+                  </div>
+                </div>
+                <div class="post-caption">
+                  <p><strong>Jane D.</strong> Great game today! U-8 team showing amazing teamwork. Go Briarcliff! &#9917;</p>
+                </div>
+                <div class="post-actions">
+                  <button class="post-action-btn" onclick="this.classList.toggle('liked')">
+                    <i class="fas fa-heart"></i> <span>12</span>
+                  </button>
+                  <button class="post-action-btn">
+                    <i class="fas fa-comment"></i> <span>3</span>
+                  </button>
+                  <button class="post-action-btn">
+                    <i class="fas fa-share"></i> Share
+                  </button>
+                </div>
+              </div>
+
+              <div class="photo-post">
+                <div class="post-header">
+                  <div class="post-avatar">MS</div>
+                  <div class="post-meta">
+                    <strong>Mike S.</strong>
+                    <span>Yesterday</span>
+                  </div>
+                </div>
+                <div class="post-image" style="background: linear-gradient(135deg, #0b1a2e 0%, #c75518 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:1.1rem;">
+                  <div style="text-align:center; padding:2rem;">
+                    <i class="fas fa-trophy" style="font-size:3rem; margin-bottom:1rem; opacity:0.7;"></i>
+                    <p>Season highlights coming soon!</p>
+                  </div>
+                </div>
+                <div class="post-caption">
+                  <p><strong>Mike S.</strong> Travel team practice looking sharp! Ready for Sunday's match against Croton. &#128170;</p>
+                </div>
+                <div class="post-actions">
+                  <button class="post-action-btn">
+                    <i class="fas fa-heart"></i> <span>8</span>
+                  </button>
+                  <button class="post-action-btn">
+                    <i class="fas fa-comment"></i> <span>1</span>
+                  </button>
+                  <button class="post-action-btn">
+                    <i class="fas fa-share"></i> Share
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Need Section -->
+  <section class="gear-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get Ready</span>
+        <h2>What You Need</h2>
+      </div>
+      <div class="gear-grid">
+        <div class="gear-item">
+          <div class="gear-icon"><i class="fas fa-tint"></i></div>
+          <h4>Water Bottle</h4>
+        </div>
+        <div class="gear-item">
+          <div class="gear-icon"><i class="fas fa-futbol"></i></div>
+          <h4>Soccer Ball</h4>
+        </div>
+        <div class="gear-item">
+          <div class="gear-icon"><i class="fas fa-shoe-prints"></i></div>
+          <h4>Cleats</h4>
+        </div>
+        <div class="gear-item">
+          <div class="gear-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>Shin Guards</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Have Questions?</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-columns">
+        <!-- AYSO FAQs -->
+        <div class="faq-column">
+          <h3 class="faq-column-title"><i class="fas fa-futbol"></i> AYSO Program</h3>
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-header">
+                What age does AYSO start?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>Pre-K 3s. We welcome players of all ages and abilities.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                When does the season start and end?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>After Labor Day and into early November, subject to change and weather conditions.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Will we play other towns?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>The younger kids (Kindergarten&ndash;2nd grade) have historically played Pleasantville, and the older kids play towns from the area (Croton, Sleepy Hollow, Pleasantville, etc.).</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Who will be the coaches?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>Training is conducted by professional trainers and games are coached by volunteer coaches. No soccer experience is required to volunteer as a coach!</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Can I put in a friend request?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>This is logistically challenging. We received over 60 friend requests last season which made it challenging to balance rosters. Soccer is a great opportunity for your child to meet new friends.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                My child's grade is wrong in the dropdown?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>We sort teams by rising grade (i.e. grade in Fall). The system is rigid on this component and we will edit manually to ensure your child plays with their classmates.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                What if I have a conflict for a game or practice?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>We understand conflicts come up. Please try to make it to games and practices, but if you cannot, please inform your volunteer coach in advance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Travel FAQs -->
+        <div class="faq-column" id="faq-travel">
+          <h3 class="faq-column-title"><i class="fas fa-trophy"></i> Travel Soccer (WYSL)</h3>
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Who decides who makes the travel teams?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>We employ a third-party training organization to run the tryout process. We primarily use those results, supplemented by coach and team trainer evaluations.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                How many travel teams will there be?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>We anticipate 1 team for each gender in each age group from U-10 through U-14.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Are teams based on grade or birth year?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>Per US Soccer Federation guidelines, teams are formed based on calendar year birthdates, regardless of grade level.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Can my U-10 child try out for U-11?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>Yes, however we encourage you to discuss with your player's coach or trainer to determine if that is the best route.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Why is travel soccer more expensive?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>There are several factors including additional training sessions, WYSL league fees, uniform fees, and more.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                What if my child doesn't make the travel team?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>We field teams through AYSO for these age groups, so all players will have an opportunity to continue playing regardless.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                Should I also register for AYSO while trying out?
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="accordion-body">
+                <p>AYSO registration remains open into July. We recommend waiting until you are certain about your player's travel status before registering for AYSO.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fields Section -->
+  <section class="fields-section" id="fields">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Locations</span>
+        <h2>Find Our Fields</h2>
+        <p>Get directions to all BYSC playing fields.</p>
+      </div>
+      <div class="fields-grid">
+        <a href="https://www.google.com/maps/dir//Briarcliff+Manor,+NY" target="_blank" class="field-card">
+          <div class="field-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h4>AYSO Westchester Fields</h4>
+          <p>Click for directions to all AYSO-Westchester fields</p>
+          <span class="field-link">Get Directions <i class="fas fa-external-link-alt"></i></span>
+        </a>
+        <a href="https://www.google.com/maps/dir//Law+Memorial+Park,+Briarcliff+Manor,+NY" target="_blank" class="field-card">
+          <div class="field-icon"><i class="fas fa-map-pin"></i></div>
+          <h4>Law Memorial Park</h4>
+          <p>Briarcliff Manor, NY</p>
+          <span class="field-link">Get Directions <i class="fas fa-external-link-alt"></i></span>
+        </a>
+        <a href="https://www.google.com/maps/dir//Briarcliff+Middle+School,+Briarcliff+Manor,+NY" target="_blank" class="field-card">
+          <div class="field-icon"><i class="fas fa-map-pin"></i></div>
+          <h4>Briarcliff Middle School</h4>
+          <p>Briarcliff Manor, NY</p>
+          <span class="field-link">Get Directions <i class="fas fa-external-link-alt"></i></span>
+        </a>
+        <a href="https://www.google.com/maps/dir//Briarcliff+High+School,+Briarcliff+Manor,+NY" target="_blank" class="field-card">
+          <div class="field-icon"><i class="fas fa-map-pin"></i></div>
+          <h4>Briarcliff High School</h4>
+          <p>Briarcliff Manor, NY</p>
+          <span class="field-link">Get Directions <i class="fas fa-external-link-alt"></i></span>
+        </a>
+      </div>
+      <p class="fields-note"><i class="fas fa-dog"></i> Reminder: No dogs are allowed on school property. Thank you for your cooperation.</p>
+    </div>
+  </section>
+
+  <!-- Coaches CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>Volunteer to Coach!</h2>
+          <p>The program only works with volunteer coaches. You don't need any soccer experience &mdash; just a positive attitude and enthusiasm for helping kids grow.</p>
+          <a href="mailto:info@briarcliffsoccer.org" class="btn btn-accent btn-lg">
+            <i class="fas fa-hand-paper"></i> Sign Up to Coach
+          </a>
+        </div>
+        <div class="cta-icon">
+          <i class="fas fa-whistle"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe Section -->
+  <section class="subscribe-section" id="subscribe">
+    <div class="container">
+      <div class="subscribe-card">
+        <div class="subscribe-content">
+          <h2>Stay in the Loop</h2>
+          <p>Get the latest news, schedule updates, and announcements delivered to your inbox.</p>
+          <form class="subscribe-form" id="subscribeForm">
+            <div class="form-group">
+              <input type="email" placeholder="Enter your email address" required class="form-input">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> Subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="bysc-logo.png" alt="BYSC Logo" class="logo-img">
+            <div class="logo-text">
+              <span class="logo-main">BYSC</span>
+              <span class="logo-sub">Briarcliff Youth Soccer</span>
+            </div>
+          </div>
+          <p>A non-profit and volunteer-run organization offering a positive, enriching, year-round soccer experience for the youth in Briarcliff Manor, NY.</p>
+        </div>
+        <div class="footer-links-group">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="#ayso">AYSO Recreational</a></li>
+            <li><a href="#travel">Travel Soccer (WYSL)</a></li>
+            <li><a href="https://www.ayso202.org/" target="_blank">Register Online</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#fields">Field Directions</a></li>
+            <li><a href="https://www.wyslsoccer.org/" target="_blank">WYSL</a></li>
+            <li><a href="https://www.ayso.org/" target="_blank">AYSO National</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:info@briarcliffsoccer.org"><i class="fas fa-envelope"></i> Email Us</a></li>
+            <li><a href="#subscribe"><i class="fas fa-bell"></i> Newsletter</a></li>
+            <li><a href="admin.html"><i class="fas fa-lock"></i> Admin Portal</a></li>
+          </ul>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Briarcliff Youth Soccer Club. All rights reserved.</p>
+        <p>BYSC is committed to developing the whole player through our affiliations with AYSO and WYSL.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Twitter widget script -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="script.js"></script>
+</body>
+</html>

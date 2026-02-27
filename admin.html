@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | BYSC</title>
+  <link rel="icon" type="image/png" href="bysc-logo.png">
+  <link rel="apple-touch-icon" href="bysc-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <img src="bysc-logo.png" alt="BYSC Logo" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-main">BYSC</span>
+          <span class="logo-sub">Briarcliff Youth Soccer</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#programs">Programs</a></li>
+        <li><a href="index.html#feed">News & Photos</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="index.html#fields">Fields</a></li>
+        <li><a href="admin.html" class="active-link"><i class="fas fa-lock"></i> Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Password Gate -->
+  <div class="admin-gate" id="adminGate">
+    <div class="gate-card">
+      <div class="gate-icon"><i class="fas fa-shield-alt"></i></div>
+      <h2>Admin Portal</h2>
+      <p>This area is restricted to BYSC board members and administrators.</p>
+      <form id="gateForm" class="gate-form">
+        <div class="gate-input-group">
+          <input type="password" id="gatePassword" placeholder="Enter admin password" class="gate-input" autocomplete="off">
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-sign-in-alt"></i> Enter
+          </button>
+        </div>
+        <p class="gate-error" id="gateError" hidden>
+          <i class="fas fa-exclamation-circle"></i> Incorrect password. Please try again.
+        </p>
+      </form>
+      <p class="gate-hint">Contact a board member if you need access.</p>
+    </div>
+  </div>
+
+  <!-- Admin Content (hidden until authenticated) -->
+  <div class="admin-content" id="adminContent" hidden>
+
+    <!-- Admin Header -->
+    <section class="admin-header-section">
+      <div class="container">
+        <div class="admin-header-card">
+          <div class="admin-header-text">
+            <span class="section-tag">Restricted Access</span>
+            <h1>BYSC Admin Portal</h1>
+            <p>Board member resources, club documents, and administrative tools.</p>
+          </div>
+          <button class="btn btn-secondary" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Log Out
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Admin Links -->
+    <section class="admin-quick-links">
+      <div class="container">
+        <div class="admin-links-grid">
+          <a href="#" id="gdriveLink" target="_blank" class="admin-link-card gdrive">
+            <div class="admin-link-icon"><i class="fab fa-google-drive"></i></div>
+            <h3>Google Drive</h3>
+            <p>Shared club documents, meeting notes, budgets &amp; more</p>
+            <span class="admin-link-action">Open Drive <i class="fas fa-external-link-alt"></i></span>
+          </a>
+          <a href="#documents" class="admin-link-card">
+            <div class="admin-link-icon"><i class="fas fa-file-contract"></i></div>
+            <h3>Incorporation Docs</h3>
+            <p>Articles of incorporation, bylaws, EIN &amp; tax-exempt status</p>
+            <span class="admin-link-action">View Below <i class="fas fa-arrow-down"></i></span>
+          </a>
+          <a href="#insurance" class="admin-link-card">
+            <div class="admin-link-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>Insurance</h3>
+            <p>Liability certificates, coverage details &amp; policy info</p>
+            <span class="admin-link-action">View Below <i class="fas fa-arrow-down"></i></span>
+          </a>
+          <a href="#instructions" class="admin-link-card">
+            <div class="admin-link-icon"><i class="fas fa-book"></i></div>
+            <h3>Admin Guide</h3>
+            <p>Step-by-step instructions for board members</p>
+            <span class="admin-link-action">View Below <i class="fas fa-arrow-down"></i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin Instructions -->
+    <section class="admin-section" id="instructions">
+      <div class="container">
+        <div class="section-header" style="text-align:left;">
+          <span class="section-tag">Getting Started</span>
+          <h2>Admin Instructions</h2>
+        </div>
+        <div class="admin-instructions">
+          <div class="instruction-card">
+            <div class="instruction-number">1</div>
+            <div class="instruction-body">
+              <h4>Google Drive Access</h4>
+              <p>All shared club files (budgets, meeting minutes, rosters, templates, etc.) are stored in our Google Drive. Request access from the current Board President if you haven't been added.</p>
+              <a href="#" class="gdrive-link" target="_blank"><i class="fab fa-google-drive"></i> Open BYSC Google Drive</a>
+            </div>
+          </div>
+          <div class="instruction-card">
+            <div class="instruction-number">2</div>
+            <div class="instruction-body">
+              <h4>AYSO Region 202 Admin</h4>
+              <p>Register as a volunteer at <a href="https://www.ayso202.org/" target="_blank">ayso202.org</a>. Complete your Safe Haven certification and any required background checks through AYSO's system. Coordinate with the Regional Commissioner for admin-level access.</p>
+            </div>
+          </div>
+          <div class="instruction-card">
+            <div class="instruction-number">3</div>
+            <div class="instruction-body">
+              <h4>WYSL (Travel Soccer) Admin</h4>
+              <p>Travel program coordination goes through the Westchester Youth Soccer League. Login credentials for GotSport are managed by the Travel Director. Contact them for roster management, scheduling, and match card access.</p>
+            </div>
+          </div>
+          <div class="instruction-card">
+            <div class="instruction-number">4</div>
+            <div class="instruction-body">
+              <h4>Website Management</h4>
+              <p>This website is hosted as a static site. To make updates, edit the files in the <code>BYSC Website</code> folder and redeploy. The domain <strong>briarcliffsoccer.org</strong> is registered through GoDaddy. Contact the webmaster for DNS or hosting changes.</p>
+            </div>
+          </div>
+          <div class="instruction-card">
+            <div class="instruction-number">5</div>
+            <div class="instruction-body">
+              <h4>Financial &amp; Banking</h4>
+              <p>BYSC operates as a 501(c)(3) non-profit. The Treasurer manages the club bank account and handles all registration fee collection, trainer payments, and league dues. Refer to the incorporation documents below for our EIN and tax-exempt details.</p>
+            </div>
+          </div>
+          <div class="instruction-card">
+            <div class="instruction-number">6</div>
+            <div class="instruction-body">
+              <h4>Seasonal Checklist</h4>
+              <ul class="checklist">
+                <li><i class="fas fa-check-square"></i> Open registration on ayso202.org (typically April/May)</li>
+                <li><i class="fas fa-check-square"></i> Secure professional trainers for the season</li>
+                <li><i class="fas fa-check-square"></i> Confirm field permits with the Village/School District</li>
+                <li><i class="fas fa-check-square"></i> Recruit volunteer coaches (email blast + website)</li>
+                <li><i class="fas fa-check-square"></i> Run travel tryouts in June (hire 3rd-party evaluator)</li>
+                <li><i class="fas fa-check-square"></i> Balance AYSO team rosters by rising grade</li>
+                <li><i class="fas fa-check-square"></i> Distribute uniforms and game schedules</li>
+                <li><i class="fas fa-check-square"></i> Verify insurance certificates are current</li>
+                <li><i class="fas fa-check-square"></i> Update website with current season info</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Incorporation Documents -->
+    <section class="admin-section admin-section-alt" id="documents">
+      <div class="container">
+        <div class="section-header" style="text-align:left;">
+          <span class="section-tag">Legal</span>
+          <h2>Incorporation Documents</h2>
+          <p style="text-align:left; margin:0;">Official club formation and tax-exempt status documents. Download originals from Google Drive for certified copies.</p>
+        </div>
+        <div class="doc-grid">
+          <div class="doc-card">
+            <div class="doc-icon"><i class="fas fa-landmark"></i></div>
+            <div class="doc-info">
+              <h4>Articles of Incorporation</h4>
+              <p>Official formation document filed with New York State Division of Corporations. Establishes BYSC as a non-profit corporation.</p>
+              <div class="doc-meta">
+                <span><i class="fas fa-calendar"></i> Filed with NY Dept. of State</span>
+              </div>
+            </div>
+            <a href="docs/articles-of-incorporation.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="fas fa-download"></i> Download PDF
+            </a>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon"><i class="fas fa-scroll"></i></div>
+            <div class="doc-info">
+              <h4>Constitution &amp; Bylaws</h4>
+              <p>Governing rules for the club including board structure, elections, meeting procedures, and membership policies.</p>
+              <div class="doc-meta">
+                <span><i class="fas fa-edit"></i> Last amended by board vote</span>
+              </div>
+            </div>
+            <a href="docs/bylaws.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="fas fa-download"></i> Download PDF
+            </a>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon"><i class="fas fa-file-invoice"></i></div>
+            <div class="doc-info">
+              <h4>EIN / Tax ID Letter</h4>
+              <p>IRS Employer Identification Number assignment letter. Required for banking, insurance, and vendor relationships.</p>
+              <div class="doc-meta">
+                <span><i class="fas fa-hashtag"></i> Federal Tax ID (EIN)</span>
+              </div>
+            </div>
+            <a href="docs/ein-letter.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="fas fa-download"></i> Download PDF
+            </a>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon"><i class="fas fa-hand-holding-heart"></i></div>
+            <div class="doc-info">
+              <h4>501(c)(3) Determination Letter</h4>
+              <p>IRS letter confirming BYSC's tax-exempt status as a charitable organization under Section 501(c)(3).</p>
+              <div class="doc-meta">
+                <span><i class="fas fa-check-circle"></i> Tax-exempt status confirmed</span>
+              </div>
+            </div>
+            <a href="docs/501c3-determination.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="fas fa-download"></i> Download PDF
+            </a>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon"><i class="fas fa-file-alt"></i></div>
+            <div class="doc-info">
+              <h4>NY Charities Registration</h4>
+              <p>Registration with the NY Attorney General's Charities Bureau as required for non-profit solicitation in New York State.</p>
+              <div class="doc-meta">
+                <span><i class="fas fa-university"></i> NY Attorney General filing</span>
+              </div>
+            </div>
+            <a href="docs/ny-charities-registration.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="fas fa-download"></i> Download PDF
+            </a>
+          </div>
+          <div class="doc-card">
+            <div class="doc-icon"><i class="fas fa-file-signature"></i></div>
+            <div class="doc-info">
+              <h4>Board Resolutions</h4>
+              <p>Archive of formal board resolutions, officer appointments, and authorized signatory designations.</p>
+              <div class="doc-meta">
+                <span><i class="fas fa-users"></i> Current board records</span>
+              </div>
+            </div>
+            <a href="docs/board-resolutions.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="fas fa-download"></i> Download PDF
+            </a>
+          </div>
+        </div>
+        <div class="doc-upload-note">
+          <i class="fas fa-info-circle"></i>
+          <p>To add or update documents, place PDF files in the <code>docs/</code> folder and update the links above. Originals should also be uploaded to the shared Google Drive for backup.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insurance Section -->
+    <section class="admin-section" id="insurance">
+      <div class="container">
+        <div class="section-header" style="text-align:left;">
+          <span class="section-tag">Coverage</span>
+          <h2>Insurance Details</h2>
+          <p style="text-align:left; margin:0;">Current insurance policies and certificates of liability. Facilities may request COIs for field permits.</p>
+        </div>
+        <div class="insurance-grid">
+          <div class="insurance-card">
+            <div class="insurance-header">
+              <i class="fas fa-shield-alt"></i>
+              <h3>General Liability Insurance</h3>
+            </div>
+            <div class="insurance-body">
+              <div class="insurance-detail">
+                <span class="insurance-label">Provider</span>
+                <span class="insurance-value">Provided through AYSO National</span>
+              </div>
+              <div class="insurance-detail">
+                <span class="insurance-label">Coverage</span>
+                <span class="insurance-value">$1M per occurrence / $5M aggregate</span>
+              </div>
+              <div class="insurance-detail">
+                <span class="insurance-label">Policy Period</span>
+                <span class="insurance-value">Renewed annually (Aug 1 &ndash; Jul 31)</span>
+              </div>
+              <div class="insurance-detail">
+                <span class="insurance-label">Covers</span>
+                <span class="insurance-value">All registered AYSO activities, practices, and games</span>
+              </div>
+              <a href="docs/general-liability-certificate.pdf" class="btn btn-primary btn-sm" target="_blank">
+                <i class="fas fa-download"></i> Download Certificate
+              </a>
+            </div>
+          </div>
+          <div class="insurance-card">
+            <div class="insurance-header">
+              <i class="fas fa-user-shield"></i>
+              <h3>Directors &amp; Officers (D&amp;O) Insurance</h3>
+            </div>
+            <div class="insurance-body">
+              <div class="insurance-detail">
+                <span class="insurance-label">Provider</span>
+                <span class="insurance-value">Provided through AYSO National</span>
+              </div>
+              <div class="insurance-detail">
+                <span class="insurance-label">Coverage</span>
+                <span class="insurance-value">Protects board members acting in official capacity</span>
+              </div>
+              <div class="insurance-detail">
+                <span class="insurance-label">Policy Period</span>
+                <span class="insurance-value">Renewed annually with AYSO membership</span>
+              </div>
+              <div class="insurance-detail">
+                <span class="insurance-label">Covers</span>
+                <span class="insurance-value">Board decisions, wrongful acts, employment practices</span>
+              </div>
+              <a href="docs/do-insurance-certificate.pdf" class="btn btn-primary btn-sm" target="_blank">
+                <i class="fas fa-download"></i> Download Certificate
+              </a>
+            </div>
+          </div>
+          <div class="insurance-card">
+            <div class="insurance-header">
+              <i class="fas fa-running"></i>
+              <h3>Accident / Medical Insurance</h3>
+            </div>
+            <div class="insurance-body">
+              <div class="insurance-detail">
+                <span class="insurance-label">Provider</span>
+                <span class="insurance-value">Provided through AYSO National</span>
+              </div>
+              <div class="insurance-detail">
+                <span class="insurance-label">Coverage</span>
+                <span class="insurance-value">Secondary coverage for player injuries</span>
+              </div>
+              <div class="insurance-detail">
+                <span class="insurance-label">Policy Period</span>
+                <span class="insurance-value">Active during all sanctioned activities</span>
+              </div>
+              <div class="insurance-detail">
+                <span class="insurance-label">Covers</span>
+                <span class="insurance-value">Registered players, coaches, and volunteers</span>
+              </div>
+              <a href="docs/accident-insurance-certificate.pdf" class="btn btn-primary btn-sm" target="_blank">
+                <i class="fas fa-download"></i> Download Certificate
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="insurance-coi-section">
+          <div class="coi-card">
+            <div class="coi-icon"><i class="fas fa-file-pdf"></i></div>
+            <div class="coi-info">
+              <h4>Need a Certificate of Insurance (COI)?</h4>
+              <p>Schools and municipal facilities often require a COI naming them as an additional insured. Contact AYSO Region 202 to request a certificate with the specific entity listed. Typical turnaround is 5&ndash;7 business days.</p>
+              <a href="mailto:info@briarcliffsoccer.org" class="btn btn-accent btn-sm">
+                <i class="fas fa-envelope"></i> Request COI
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Contacts -->
+    <section class="admin-section admin-section-alt" id="contacts">
+      <div class="container">
+        <div class="section-header" style="text-align:left;">
+          <span class="section-tag">People</span>
+          <h2>Key Contacts</h2>
+        </div>
+        <div class="contacts-grid">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-user-tie"></i></div>
+            <h4>Board President</h4>
+            <p>Overall club leadership, board meetings, strategic direction</p>
+            <span class="contact-placeholder">Update with current officer</span>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-calculator"></i></div>
+            <h4>Treasurer</h4>
+            <p>Banking, registration fees, trainer payments, budget</p>
+            <span class="contact-placeholder">Update with current officer</span>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-futbol"></i></div>
+            <h4>AYSO Coordinator</h4>
+            <p>Recreational program, team formation, AYSO Region 202</p>
+            <span class="contact-placeholder">Update with current officer</span>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-trophy"></i></div>
+            <h4>Travel Director</h4>
+            <p>WYSL travel program, tryouts, GotSport management</p>
+            <span class="contact-placeholder">Jordan Snider / Jay Johnson</span>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-laptop-code"></i></div>
+            <h4>Webmaster</h4>
+            <p>Website updates, domain (GoDaddy), hosting, social media</p>
+            <span class="contact-placeholder">Update with current officer</span>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-clipboard-check"></i></div>
+            <h4>Registrar</h4>
+            <p>Player registration, background checks, Safe Haven compliance</p>
+            <span class="contact-placeholder">Update with current officer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- end admin-content -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding: 24px 0;">
+        <p>&copy; 2025 Briarcliff Youth Soccer Club. All rights reserved.</p>
+        <p><a href="index.html" style="color: var(--blue-300);">Back to Main Site</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Mobile Nav Toggle ----
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // ---- Password Gate ----
+    const ADMIN_HASH = 'c6468be381bb4ef3338cba9c1384a90e2547981f27a0707073989e57762ea9e5';
+    const adminGate = document.getElementById('adminGate');
+    const adminContent = document.getElementById('adminContent');
+    const gateForm = document.getElementById('gateForm');
+    const gatePassword = document.getElementById('gatePassword');
+    const gateError = document.getElementById('gateError');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    async function sha256(message) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(message);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function unlock() {
+      adminGate.hidden = true;
+      adminContent.hidden = false;
+      sessionStorage.setItem('bysc_admin', '1');
+    }
+
+    function lock() {
+      adminGate.hidden = false;
+      adminContent.hidden = true;
+      sessionStorage.removeItem('bysc_admin');
+    }
+
+    if (sessionStorage.getItem('bysc_admin') === '1') {
+      unlock();
+    }
+
+    gateForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const hash = await sha256(gatePassword.value);
+      if (hash === ADMIN_HASH) {
+        unlock();
+      } else {
+        gateError.hidden = false;
+        gatePassword.value = '';
+        gatePassword.focus();
+      }
+    });
+
+    logoutBtn.addEventListener('click', lock);
+
+    // ---- Google Drive Link ----
+    const GDRIVE_URL = '#';
+    document.getElementById('gdriveLink').href = GDRIVE_URL;
+    document.querySelectorAll('.gdrive-link').forEach(el => { el.href = GDRIVE_URL; });
+  </script>
+</body>
+</html>
