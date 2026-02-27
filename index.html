@@ -17,7 +17,7 @@
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar-inner">
-      <span><i class="fas fa-map-marker-alt"></i> Briarcliff Manor, NY</span>
+      <a href="https://www.google.com/maps/place/Briarcliff+Manor+Village+Hall,+1111+Pleasantville+Rd,+Briarcliff+Manor,+NY+10510" target="_blank" style="color:inherit;"><i class="fas fa-map-marker-alt"></i> Briarcliff Manor, NY</a>
       <div class="top-bar-links">
         <a href="https://www.ayso202.org/" target="_blank">AYSO Region 202</a>
         <a href="https://www.wyslsoccer.org/" target="_blank">WYSL</a>
@@ -61,12 +61,38 @@
         </li>
         <li><a href="#feed">News</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#fields">Fields</a></li>
+        <li class="dropdown">
+          <a href="#fields">Fields <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://system.gotsport.com/org_event/events/45845/fields" target="_blank">WYSL Field Directory</a></li>
+            <li><a href="https://www.google.com/maps/place/Law+Memorial+Park,+Briarcliff+Manor,+NY+10510" target="_blank">Law Memorial Park</a></li>
+            <li><a href="https://www.google.com/maps/place/Briarcliff+Middle+School,+444+Pleasantville+Rd,+Briarcliff+Manor,+NY+10510" target="_blank">Briarcliff Middle School</a></li>
+            <li><a href="https://www.google.com/maps/place/Briarcliff+High+School,+444+Pleasantville+Rd,+Briarcliff+Manor,+NY+10510" target="_blank">Briarcliff High School</a></li>
+            <li><a href="https://www.google.com/maps/place/Todd+Elementary+School,+Briarcliff+Manor,+NY+10510" target="_blank">Todd Elementary School</a></li>
+          </ul>
+        </li>
         <li><a href="admin.html"><i class="fas fa-lock"></i> Admin</a></li>
-        <li><a href="https://www.ayso202.org/" target="_blank" class="btn btn-nav">Register Now</a></li>
+        <li><a href="https://www.ayso202.org/" target="_blank" class="btn btn-nav">AYSO Registration</a></li>
       </ul>
     </div>
   </nav>
+
+  <!-- Announcements Banner (below nav) -->
+  <section class="announcements" id="announcements">
+    <div class="container">
+      <div class="announcement-ticker">
+        <div class="announcement-label"><i class="fas fa-bullhorn"></i> News</div>
+        <div class="ticker-wrap">
+          <div class="ticker">
+            <span class="ticker-item">Fall 2025/2026 Registration is NOW OPEN at ayso202.org</span>
+            <span class="ticker-item">Travel Soccer tryouts coming in June &mdash; U-10 through U-14 boys &amp; girls</span>
+            <span class="ticker-item">Volunteer coaches needed! No soccer experience required.</span>
+            <span class="ticker-item">Season runs from after Labor Day into early November</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Hero Section -->
   <header class="hero" id="home">
@@ -78,7 +104,10 @@
       <p>A non-profit, volunteer-run organization offering a positive, enriching, year-round soccer experience for every player ability level.</p>
       <div class="hero-buttons">
         <a href="https://www.ayso202.org/" target="_blank" class="btn btn-accent btn-lg">
-          <i class="fas fa-user-plus"></i> Register for 2025/26
+          <i class="fas fa-user-plus"></i> AYSO Registration
+        </a>
+        <a href="https://www.gotsport.com/" target="_blank" class="btn btn-outline btn-lg">
+          <i class="fas fa-trophy"></i> WYSL Registration
         </a>
         <a href="#programs" class="btn btn-outline btn-lg">
           <i class="fas fa-info-circle"></i> Our Programs
@@ -102,59 +131,9 @@
       </div>
     </div>
     <div class="hero-scroll">
-      <a href="#announcements"><i class="fas fa-chevron-down"></i></a>
+      <a href="#programs"><i class="fas fa-chevron-down"></i></a>
     </div>
   </header>
-
-  <!-- Announcements Banner -->
-  <section class="announcements" id="announcements">
-    <div class="container">
-      <div class="announcement-ticker">
-        <div class="announcement-label"><i class="fas fa-bullhorn"></i> News</div>
-        <div class="ticker-wrap">
-          <div class="ticker">
-            <span class="ticker-item">Fall 2025/2026 Registration is NOW OPEN at ayso202.org</span>
-            <span class="ticker-item">Travel Soccer tryouts coming in June &mdash; U-10 through U-14 boys &amp; girls</span>
-            <span class="ticker-item">Volunteer coaches needed! No soccer experience required.</span>
-            <span class="ticker-item">Season runs from after Labor Day into early November</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quick Links -->
-  <section class="quick-links">
-    <div class="container">
-      <div class="quick-links-grid">
-        <a href="https://www.ayso202.org/" target="_blank" class="quick-link-card">
-          <div class="ql-icon"><i class="fas fa-clipboard-list"></i></div>
-          <h3>Register Now</h3>
-          <p>Sign up for Fall 2025/26</p>
-        </a>
-        <a href="#ayso" class="quick-link-card">
-          <div class="ql-icon"><i class="fas fa-futbol"></i></div>
-          <h3>AYSO Program</h3>
-          <p>Ages Pre-K through 8th</p>
-        </a>
-        <a href="#travel" class="quick-link-card">
-          <div class="ql-icon"><i class="fas fa-trophy"></i></div>
-          <h3>Travel Soccer</h3>
-          <p>WYSL competitive play</p>
-        </a>
-        <a href="https://myuniform.soccerandrugby.com/store/club/briarcliff-youth-soccer-club" target="_blank" class="quick-link-card">
-          <div class="ql-icon"><i class="fas fa-tshirt"></i></div>
-          <h3>Travel Uniforms</h3>
-          <p>Order team gear online</p>
-        </a>
-        <a href="#fields" class="quick-link-card">
-          <div class="ql-icon"><i class="fas fa-map-marked-alt"></i></div>
-          <h3>Find Our Fields</h3>
-          <p>Directions &amp; maps</p>
-        </a>
-      </div>
-    </div>
-  </section>
 
   <!-- Programs Section -->
   <section class="programs" id="programs">
@@ -214,7 +193,10 @@
               <div class="detail"><i class="fas fa-route"></i> Westchester &amp; surrounding</div>
               <div class="detail"><i class="fas fa-user-tie"></i> 3rd-party tryout evaluation</div>
             </div>
-            <a href="#faq-travel" class="btn btn-primary btn-block">Learn More</a>
+            <a href="https://www.gotsport.com/" target="_blank" class="btn btn-primary btn-block">
+              <i class="fas fa-trophy"></i> WYSL Registration
+            </a>
+            <a href="#faq-travel" class="btn btn-outline btn-block" style="margin-top:10px;">Learn More</a>
             <a href="https://myuniform.soccerandrugby.com/store/club/briarcliff-youth-soccer-club" target="_blank" class="btn btn-accent btn-block" style="margin-top:10px;">
               <i class="fas fa-tshirt"></i> Order Uniforms
             </a>
@@ -297,34 +279,6 @@
               Loading US Soccer feed&hellip;
             </a>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What You Need Section -->
-  <section class="gear-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Get Ready</span>
-        <h2>What You Need</h2>
-      </div>
-      <div class="gear-grid">
-        <div class="gear-item">
-          <div class="gear-icon"><i class="fas fa-tint"></i></div>
-          <h4>Water Bottle</h4>
-        </div>
-        <div class="gear-item">
-          <div class="gear-icon"><i class="fas fa-futbol"></i></div>
-          <h4>Soccer Ball</h4>
-        </div>
-        <div class="gear-item">
-          <div class="gear-icon"><i class="fas fa-shoe-prints"></i></div>
-          <h4>Cleats</h4>
-        </div>
-        <div class="gear-item">
-          <div class="gear-icon"><i class="fas fa-shield-alt"></i></div>
-          <h4>Shin Guards</h4>
         </div>
       </div>
     </div>
@@ -485,32 +439,37 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Locations</span>
-        <h2>Find Our Fields</h2>
-        <p>Get directions to all BYSC playing fields.</p>
+        <h2>Our Playing Fields</h2>
       </div>
       <div class="fields-grid">
-        <a href="https://www.google.com/maps/dir//Briarcliff+Manor,+NY" target="_blank" class="field-card">
+        <a href="https://system.gotsport.com/org_event/events/45845/fields" target="_blank" class="field-card">
           <div class="field-icon"><i class="fas fa-map-marked-alt"></i></div>
-          <h4>AYSO Westchester Fields</h4>
-          <p>Click for directions to all AYSO-Westchester fields</p>
-          <span class="field-link">Get Directions <i class="fas fa-external-link-alt"></i></span>
+          <h4>WYSL Field Directory</h4>
+          <p>All travel game venues across Westchester</p>
+          <span class="field-link">View All Fields <i class="fas fa-external-link-alt"></i></span>
         </a>
-        <a href="https://www.google.com/maps/dir//Law+Memorial+Park,+Briarcliff+Manor,+NY" target="_blank" class="field-card">
+        <a href="https://www.google.com/maps/place/Law+Memorial+Park,+Briarcliff+Manor,+NY+10510" target="_blank" class="field-card">
           <div class="field-icon"><i class="fas fa-map-pin"></i></div>
           <h4>Law Memorial Park</h4>
-          <p>Briarcliff Manor, NY</p>
+          <p>1039 Pleasantville Rd, Briarcliff Manor</p>
           <span class="field-link">Get Directions <i class="fas fa-external-link-alt"></i></span>
         </a>
-        <a href="https://www.google.com/maps/dir//Briarcliff+Middle+School,+Briarcliff+Manor,+NY" target="_blank" class="field-card">
+        <a href="https://www.google.com/maps/place/Briarcliff+Middle+School,+444+Pleasantville+Rd,+Briarcliff+Manor,+NY+10510" target="_blank" class="field-card">
           <div class="field-icon"><i class="fas fa-map-pin"></i></div>
           <h4>Briarcliff Middle School</h4>
-          <p>Briarcliff Manor, NY</p>
+          <p>444 Pleasantville Rd, Briarcliff Manor</p>
           <span class="field-link">Get Directions <i class="fas fa-external-link-alt"></i></span>
         </a>
-        <a href="https://www.google.com/maps/dir//Briarcliff+High+School,+Briarcliff+Manor,+NY" target="_blank" class="field-card">
+        <a href="https://www.google.com/maps/place/Briarcliff+High+School,+444+Pleasantville+Rd,+Briarcliff+Manor,+NY+10510" target="_blank" class="field-card">
           <div class="field-icon"><i class="fas fa-map-pin"></i></div>
           <h4>Briarcliff High School</h4>
-          <p>Briarcliff Manor, NY</p>
+          <p>444 Pleasantville Rd, Briarcliff Manor</p>
+          <span class="field-link">Get Directions <i class="fas fa-external-link-alt"></i></span>
+        </a>
+        <a href="https://www.google.com/maps/place/Todd+Elementary+School,+Briarcliff+Manor,+NY+10510" target="_blank" class="field-card">
+          <div class="field-icon"><i class="fas fa-map-pin"></i></div>
+          <h4>Todd Elementary School</h4>
+          <p>40 Todd Ln, Briarcliff Manor</p>
           <span class="field-link">Get Directions <i class="fas fa-external-link-alt"></i></span>
         </a>
       </div>
@@ -575,14 +534,15 @@
           <ul>
             <li><a href="#ayso">AYSO Recreational</a></li>
             <li><a href="#travel">Travel Soccer (WYSL)</a></li>
-            <li><a href="https://www.ayso202.org/" target="_blank">Register Online</a></li>
+            <li><a href="https://www.ayso202.org/" target="_blank">AYSO Registration</a></li>
+            <li><a href="https://www.gotsport.com/" target="_blank">WYSL Registration</a></li>
           </ul>
         </div>
         <div class="footer-links-group">
           <h4>Resources</h4>
           <ul>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="#fields">Field Directions</a></li>
+            <li><a href="#fields">Our Fields</a></li>
             <li><a href="gotsport.html">GotSport Guide</a></li>
             <li><a href="coaching.html">Coaching Resources</a></li>
             <li><a href="conduct.html">Codes of Conduct</a></li>
