@@ -944,6 +944,36 @@ img {
   background: var(--white);
 }
 
+.fields-compact {
+  padding: 48px 0;
+}
+
+.fields-compact .fields-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.fields-compact .field-card {
+  padding: 18px 14px;
+  border-radius: var(--radius-md);
+}
+
+.fields-compact .field-icon {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.fields-compact .field-card h4 {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.fields-compact .field-card p {
+  font-size: 0.75rem;
+  margin-bottom: 0;
+}
+
 .fields-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -961,8 +991,8 @@ img {
 }
 
 .field-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
   border-color: var(--blue-300);
 }
 
@@ -981,7 +1011,7 @@ img {
 .field-card p {
   font-size: 0.82rem;
   color: var(--gray-500);
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 
 .field-link {
@@ -1010,6 +1040,28 @@ img {
 .cta-section {
   padding: 80px 0;
   background: var(--gray-50);
+}
+
+.cta-compact {
+  padding: 40px 0;
+}
+
+.cta-compact .cta-card {
+  padding: 32px 40px;
+}
+
+.cta-compact .cta-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.cta-compact .cta-content p {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.cta-compact .cta-icon {
+  font-size: 3.5rem;
 }
 
 .cta-card {
@@ -1065,7 +1117,7 @@ img {
 
 /* ---- Subscribe ---- */
 .subscribe-section {
-  padding: 80px 0;
+  padding: 48px 0;
   background: var(--white);
 }
 
