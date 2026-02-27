@@ -122,11 +122,11 @@
             <p>Step-by-step instructions for board members</p>
             <span class="admin-link-action">View Below <i class="fas fa-arrow-down"></i></span>
           </a>
-          <a href="#website-guide" class="admin-link-card">
+          <a href="editor.html" class="admin-link-card gdrive">
             <div class="admin-link-icon"><i class="fas fa-edit"></i></div>
-            <h3>Update the Website</h3>
-            <p>How to edit content, upload docs &amp; deploy changes</p>
-            <span class="admin-link-action">View Below <i class="fas fa-arrow-down"></i></span>
+            <h3>Edit Website</h3>
+            <p>Update announcements, FAQ, links &amp; more via forms or chat</p>
+            <span class="admin-link-action">Open Editor <i class="fas fa-external-link-alt"></i></span>
           </a>
         </div>
       </div>
@@ -453,53 +453,30 @@
         <div class="section-header" style="text-align:left;">
           <span class="section-tag">For All Board Members</span>
           <h2>How to Update the Website</h2>
-          <p style="text-align:left; margin:0;">The site is hosted on <strong>Vercel</strong> and the source code lives on <strong>GitHub</strong>. Any board member with access can make edits directly in their browser &mdash; no coding tools needed.</p>
+          <p style="text-align:left; margin:0;">Use the built-in Website Editor for most updates. For advanced changes or uploading documents, use GitHub directly.</p>
         </div>
 
         <div class="admin-instructions">
 
+          <div class="instruction-card" style="border-color: var(--blue-300); background: var(--blue-50);">
+            <div class="instruction-number" style="background: var(--blue-600);"><i class="fas fa-star" style="font-size:0.9rem;"></i></div>
+            <div class="instruction-body">
+              <h4>Recommended: Use the Website Editor</h4>
+              <p>The easiest way to update the site. No coding needed. Open the <a href="editor.html"><strong>Website Editor</strong></a> and you can:</p>
+              <ul class="checklist">
+                <li><i class="fas fa-check-circle"></i> <strong>Quick Edit tab:</strong> Update announcements, season info, FAQ answers, and links using simple forms</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Chat tab:</strong> Describe what you want to change in plain English and the AI will make the edit for you</li>
+              </ul>
+              <p>Changes are published automatically and go live in ~30 seconds.</p>
+              <a href="editor.html" class="btn btn-primary" style="margin-top:8px;"><i class="fas fa-edit"></i> Open Website Editor</a>
+            </div>
+          </div>
+
           <div class="instruction-card">
             <div class="instruction-number"><i class="fab fa-github" style="font-size:1rem;"></i></div>
             <div class="instruction-body">
-              <h4>Step 1: Log into GitHub</h4>
-              <p>Go to <a href="https://github.com" target="_blank">github.com</a> and sign in with your account. If you don't have access yet, ask the webmaster to invite you as a collaborator on the BYSC repository.</p>
-            </div>
-          </div>
-
-          <div class="instruction-card">
-            <div class="instruction-number"><i class="fas fa-folder-open" style="font-size:0.9rem;"></i></div>
-            <div class="instruction-body">
-              <h4>Step 2: Navigate to the File You Want to Edit</h4>
-              <p>Open the BYSC repository. You'll see all the site files:</p>
-              <ul class="checklist">
-                <li><i class="fas fa-file-code"></i> <code>index.html</code> &mdash; The main public website (announcements, programs, FAQ, fields, etc.)</li>
-                <li><i class="fas fa-file-code"></i> <code>admin.html</code> &mdash; This admin portal page</li>
-                <li><i class="fas fa-folder"></i> <code>docs/</code> &mdash; PDF documents (incorporation, insurance, etc.)</li>
-                <li><i class="fas fa-palette"></i> <code>styles.css</code> &mdash; Visual styling (colors, layout &mdash; only edit if you know CSS)</li>
-                <li><i class="fas fa-cog"></i> <code>script.js</code> &mdash; Interactive features (only edit if you know JavaScript)</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="instruction-card">
-            <div class="instruction-number"><i class="fas fa-pencil-alt" style="font-size:0.9rem;"></i></div>
-            <div class="instruction-body">
-              <h4>Step 3: Edit the File</h4>
-              <p>Click on the file, then click the <strong>pencil icon</strong> (top right) to enter edit mode. Make your changes directly in the browser. Common tasks:</p>
-              <ul class="checklist">
-                <li><i class="fas fa-bullhorn"></i> <strong>Update an announcement:</strong> Search for <code>ticker-item</code> in <code>index.html</code> and change the text</li>
-                <li><i class="fas fa-question-circle"></i> <strong>Edit a FAQ answer:</strong> Search for the question text and update the <code>&lt;p&gt;</code> below it</li>
-                <li><i class="fas fa-calendar"></i> <strong>Change season dates:</strong> Search for the date text (e.g. "2025/26") and replace it</li>
-                <li><i class="fas fa-link"></i> <strong>Update a link:</strong> Find the <code>href="..."</code> and change the URL inside the quotes</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="instruction-card">
-            <div class="instruction-number"><i class="fas fa-save" style="font-size:0.9rem;"></i></div>
-            <div class="instruction-body">
-              <h4>Step 4: Commit Your Changes</h4>
-              <p>Scroll down and you'll see a "Commit changes" section. Write a short description of what you changed (e.g. "Updated fall season dates") and click <strong>"Commit changes"</strong>. That's it &mdash; Vercel will automatically deploy the updated site within 30 seconds.</p>
+              <h4>Alternative: Edit Directly on GitHub</h4>
+              <p>For advanced edits or uploading documents, go to <a href="https://github.com" target="_blank">github.com</a>, open the BYSC repository, click the pencil icon on any file, make changes, and click "Commit changes." Vercel auto-deploys within 30 seconds.</p>
             </div>
           </div>
 
@@ -507,13 +484,7 @@
             <div class="instruction-number"><i class="fas fa-file-upload" style="font-size:0.9rem;"></i></div>
             <div class="instruction-body">
               <h4>Uploading Documents (PDFs)</h4>
-              <p>To add or replace a PDF in the <code>docs/</code> folder:</p>
-              <ol class="checklist" style="counter-reset:none;">
-                <li><i class="fas fa-check-square"></i> Navigate to the <code>docs/</code> folder in the GitHub repo</li>
-                <li><i class="fas fa-check-square"></i> Click <strong>"Add file"</strong> &rarr; <strong>"Upload files"</strong></li>
-                <li><i class="fas fa-check-square"></i> Drag and drop your PDF, then click <strong>"Commit changes"</strong></li>
-              </ol>
-              <p>If you're replacing an existing file, use the exact same filename and it will overwrite.</p>
+              <p>To add or replace a PDF in the <code>docs/</code> folder: navigate to <code>docs/</code> in the GitHub repo, click <strong>"Add file" &rarr; "Upload files"</strong>, drag and drop your PDF, then click <strong>"Commit changes"</strong>.</p>
             </div>
           </div>
 
@@ -521,20 +492,22 @@
             <div class="instruction-number"><i class="fas fa-undo" style="font-size:0.9rem;"></i></div>
             <div class="instruction-body">
               <h4>Made a Mistake? Revert It</h4>
-              <p>Every change is tracked in GitHub's commit history. If something goes wrong, click <strong>"History"</strong> on any file to see all past versions and revert to a previous one. Nothing is permanent &mdash; you can always undo.</p>
+              <p>Every change is tracked in GitHub's commit history. Click <strong>"History"</strong> on any file to see all past versions and revert. Nothing is permanent &mdash; you can always undo.</p>
             </div>
           </div>
 
           <div class="instruction-card" style="border-color: var(--orange-300); background: #fff8f3;">
-            <div class="instruction-number" style="background: var(--orange-400);"><i class="fas fa-exclamation-triangle" style="font-size:0.9rem;"></i></div>
+            <div class="instruction-number" style="background: var(--orange-400);"><i class="fas fa-key" style="font-size:0.9rem;"></i></div>
             <div class="instruction-body">
-              <h4>What NOT to Change (Unless You Know What You're Doing)</h4>
+              <h4>Webmaster Setup: Environment Variables</h4>
+              <p>The Website Editor requires these environment variables in the <strong>Vercel dashboard</strong> (Settings &rarr; Environment Variables):</p>
               <ul class="checklist">
-                <li><i class="fas fa-times-circle" style="color:var(--orange-500);"></i> <code>styles.css</code> &mdash; Controls all visual styling. Bad edits can break the layout.</li>
-                <li><i class="fas fa-times-circle" style="color:var(--orange-500);"></i> <code>script.js</code> &mdash; Controls interactive features. Syntax errors will break functionality.</li>
-                <li><i class="fas fa-times-circle" style="color:var(--orange-500);"></i> HTML structure tags (<code>&lt;div&gt;</code>, <code>&lt;section&gt;</code>, <code>class="..."</code>) &mdash; Only change the text <em>between</em> tags, not the tags themselves.</li>
+                <li><i class="fas fa-check-square"></i> <code>GITHUB_TOKEN</code> &mdash; A GitHub Personal Access Token with repo write access (<a href="https://github.com/settings/tokens" target="_blank">Create one here</a>)</li>
+                <li><i class="fas fa-check-square"></i> <code>GITHUB_REPO</code> &mdash; <code>QED411/bysc-website</code></li>
+                <li><i class="fas fa-check-square"></i> <code>ADMIN_SECRET</code> &mdash; The admin password (<code>BYSC2025!</code>) used to authenticate API requests</li>
+                <li><i class="fas fa-check-square"></i> <code>OPENAI_API_KEY</code> &mdash; Required only for the Chat/Prompt feature (<a href="https://platform.openai.com/api-keys" target="_blank">Get one here</a>, ~$0.01-0.05 per edit)</li>
               </ul>
-              <p>Stick to updating <strong>text content, links, and documents</strong> and you'll be fine. For layout or design changes, ask the webmaster.</p>
+              <p>The Quick Edit forms work with just <code>GITHUB_TOKEN</code>, <code>GITHUB_REPO</code>, and <code>ADMIN_SECRET</code>. The Chat feature additionally needs <code>OPENAI_API_KEY</code>.</p>
             </div>
           </div>
 

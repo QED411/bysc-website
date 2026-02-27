@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Editor | BYSC Admin</title>
+  <link rel="icon" type="image/png" href="bysc-logo.png">
+  <link rel="apple-touch-icon" href="bysc-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .editor-gate {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(11,26,46,0.96) 0%, rgba(36,77,130,0.92) 100%);
+      padding: 40px 24px;
+    }
+    .editor-body { display: none; }
+    .editor-body.visible { display: block; }
+
+    .editor-tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--gray-100);
+      padding: 4px;
+      border-radius: var(--radius-md);
+      margin-bottom: 32px;
+    }
+    .editor-tab {
+      flex: 1;
+      padding: 12px 20px;
+      background: none;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .editor-tab:hover { color: var(--gray-700); background: var(--white); }
+    .editor-tab.active {
+      background: var(--white);
+      color: var(--blue-700);
+      box-shadow: var(--shadow-sm);
+    }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    .edit-section {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .edit-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+      cursor: pointer;
+      user-select: none;
+    }
+    .edit-section-header:hover { background: var(--blue-50); }
+    .edit-section-header h3 {
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .edit-section-header h3 i { color: var(--blue-500); }
+    .edit-section-header .toggle-icon {
+      transition: transform var(--transition);
+      color: var(--gray-400);
+    }
+    .edit-section.open .toggle-icon { transform: rotate(180deg); }
+    .edit-section-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .edit-section.open .edit-section-body {
+      max-height: 2000px;
+    }
+    .edit-section-content { padding: 24px; }
+
+    .edit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .edit-item:last-child { border-bottom: none; }
+    .edit-item-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--blue-50);
+      color: var(--blue-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .edit-item-content { flex: 1; }
+    .edit-item-content label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-bottom: 6px;
+    }
+    .edit-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: border-color var(--transition);
+    }
+    .edit-input:focus {
+      outline: none;
+      border-color: var(--blue-500);
+      box-shadow: 0 0 0 3px var(--blue-100);
+    }
+    textarea.edit-input {
+      resize: vertical;
+      min-height: 60px;
+    }
+    .edit-item-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .btn-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      color: var(--gray-500);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      transition: all var(--transition);
+    }
+    .btn-icon:hover { border-color: var(--blue-300); color: var(--blue-600); background: var(--blue-50); }
+    .btn-icon.danger:hover { border-color: #fca5a5; color: #dc2626; background: #fef2f2; }
+
+    .add-item-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: var(--blue-50);
+      border: 1px dashed var(--blue-300);
+      border-radius: var(--radius-sm);
+      color: var(--blue-700);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      justify-content: center;
+      margin-top: 12px;
+      transition: all var(--transition);
+    }
+    .add-item-btn:hover { background: var(--blue-100); border-color: var(--blue-500); }
+
+    .publish-bar {
+      position: sticky;
+      bottom: 0;
+      background: var(--white);
+      border-top: 2px solid var(--blue-200);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+      z-index: 100;
+    }
+    .publish-bar.hidden { display: none; }
+    .publish-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--gray-500);
+    }
+    .publish-status.modified { color: var(--orange-500); font-weight: 600; }
+    .publish-status.success { color: #16a34a; font-weight: 600; }
+    .publish-status.error { color: #dc2626; font-weight: 600; }
+    .publish-actions { display: flex; gap: 10px; }
+
+    /* Chat tab */
+    .chat-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .chat-file-select {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 16px 20px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+    }
+    .chat-file-select label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      white-space: nowrap;
+    }
+    .chat-file-select select {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+    .chat-messages {
+      min-height: 200px;
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 20px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .chat-msg {
+      display: flex;
+      gap: 12px;
+      max-width: 85%;
+    }
+    .chat-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+    .chat-msg-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .chat-msg.assistant .chat-msg-avatar {
+      background: var(--blue-600);
+      color: var(--white);
+    }
+    .chat-msg.user .chat-msg-avatar {
+      background: var(--orange-400);
+      color: var(--white);
+    }
+    .chat-msg-bubble {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .chat-msg.assistant .chat-msg-bubble {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      color: var(--gray-800);
+    }
+    .chat-msg.user .chat-msg-bubble {
+      background: var(--blue-600);
+      color: var(--white);
+    }
+    .chat-input-area {
+      display: flex;
+      gap: 10px;
+      padding: 16px 20px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-top: none;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+    .chat-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: 0.9rem;
+      resize: none;
+      min-height: 44px;
+      max-height: 120px;
+    }
+    .chat-input:focus {
+      outline: none;
+      border-color: var(--blue-500);
+      box-shadow: 0 0 0 3px var(--blue-100);
+    }
+    .chat-send {
+      padding: 12px 20px;
+      background: var(--blue-600);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .chat-send:hover { background: var(--blue-700); }
+    .chat-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .diff-preview {
+      margin-top: 16px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .diff-header {
+      padding: 12px 16px;
+      background: var(--blue-50);
+      border-bottom: 1px solid var(--gray-200);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--blue-800);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .diff-body {
+      padding: 16px;
+      max-height: 300px;
+      overflow-y: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .diff-added { background: #dcfce7; color: #166534; }
+    .diff-removed { background: #fef2f2; color: #991b1b; text-decoration: line-through; }
+    .diff-actions {
+      padding: 12px 16px;
+      border-top: 1px solid var(--gray-200);
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .loading-spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .chat-welcome {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--gray-400);
+    }
+    .chat-welcome i { font-size: 2rem; margin-bottom: 12px; display: block; }
+    .chat-welcome p { font-size: 0.9rem; max-width: 400px; margin: 0 auto; line-height: 1.6; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue-300);
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .back-link:hover { color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <img src="bysc-logo.png" alt="BYSC Logo" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-main">BYSC</span>
+          <span class="logo-sub">Briarcliff Youth Soccer</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="index.html#programs">Programs <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#ayso">AYSO Program</a></li>
+            <li><a href="index.html#travel">Travel Soccer</a></li>
+            <li><a href="https://system.gotsport.com/org_event/events/45845/clubs/3522" target="_blank">Club Schedule</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Resources <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="gotsport.html">GotSport Guide</a></li>
+            <li><a href="coaching.html">Coaching Resources</a></li>
+            <li><a href="conduct.html">Codes of Conduct</a></li>
+            <li><a href="medical.html">Medical Release</a></li>
+            <li><a href="https://myuniform.soccerandrugby.com/store/club/briarcliff-youth-soccer-club" target="_blank">Travel Uniforms</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="index.html#fields">Fields</a></li>
+        <li><a href="admin.html" class="active-link"><i class="fas fa-lock"></i> Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Password Gate (reuses admin password) -->
+  <div class="editor-gate" id="editorGate">
+    <div class="gate-card">
+      <div class="gate-icon"><i class="fas fa-edit"></i></div>
+      <h2>Website Editor</h2>
+      <p>Enter the admin password to access the website editor.</p>
+      <form id="gateForm" class="gate-form">
+        <div class="gate-input-group">
+          <input type="password" id="gatePassword" placeholder="Enter admin password" class="gate-input" autocomplete="off">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Enter</button>
+        </div>
+        <p class="gate-error" id="gateError" hidden>
+          <i class="fas fa-exclamation-circle"></i> Incorrect password. Please try again.
+        </p>
+      </form>
+      <p class="gate-hint">Same password as the Admin Portal.</p>
+    </div>
+  </div>
+
+  <!-- Editor Content -->
+  <div class="editor-body" id="editorBody">
+    <section class="admin-header-section">
+      <div class="container">
+        <a href="admin.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Admin Portal</a>
+        <div class="admin-header-card">
+          <div class="admin-header-text">
+            <span class="section-tag">Content Management</span>
+            <h1>Website Editor</h1>
+            <p>Edit announcements, FAQ, links and more. Changes go live automatically after publishing.</p>
+          </div>
+          <button class="btn btn-secondary" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-section">
+      <div class="container">
+        <div class="editor-tabs">
+          <button class="editor-tab active" data-tab="quick-edit">
+            <i class="fas fa-sliders-h"></i> Quick Edit
+          </button>
+          <button class="editor-tab" data-tab="chat">
+            <i class="fas fa-comment-dots"></i> Chat / Prompt
+          </button>
+        </div>
+
+        <!-- Quick Edit Tab -->
+        <div class="tab-pane active" id="tab-quick-edit">
+
+          <!-- Announcements -->
+          <div class="edit-section open" id="section-announcements">
+            <div class="edit-section-header" onclick="toggleSection('section-announcements')">
+              <h3><i class="fas fa-bullhorn"></i> Announcements (Ticker)</h3>
+              <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="edit-section-body">
+              <div class="edit-section-content">
+                <p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:16px;">
+                  These messages scroll across the blue bar below the hero section.
+                </p>
+                <div id="announcements-list"></div>
+                <button class="add-item-btn" onclick="addAnnouncement()">
+                  <i class="fas fa-plus"></i> Add Announcement
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Season & Registration -->
+          <div class="edit-section" id="section-season">
+            <div class="edit-section-header" onclick="toggleSection('section-season')">
+              <h3><i class="fas fa-calendar-alt"></i> Season &amp; Registration</h3>
+              <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="edit-section-body">
+              <div class="edit-section-content">
+                <div class="edit-item">
+                  <div class="edit-item-content">
+                    <label>Hero CTA Button Text</label>
+                    <input class="edit-input" id="edit-hero-cta" placeholder="e.g. Register for 2025/26">
+                  </div>
+                </div>
+                <div class="edit-item">
+                  <div class="edit-item-content">
+                    <label>Registration Link (AYSO)</label>
+                    <input class="edit-input" id="edit-reg-link" placeholder="https://www.ayso202.org/">
+                  </div>
+                </div>
+                <div class="edit-item">
+                  <div class="edit-item-content">
+                    <label>AYSO Season Price</label>
+                    <input class="edit-input" id="edit-ayso-price" placeholder="~$300">
+                  </div>
+                </div>
+                <div class="edit-item">
+                  <div class="edit-item-content">
+                    <label>Travel Season Price</label>
+                    <input class="edit-input" id="edit-travel-price" placeholder="~$900">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Section -->
+          <div class="edit-section" id="section-faq">
+            <div class="edit-section-header" onclick="toggleSection('section-faq')">
+              <h3><i class="fas fa-question-circle"></i> FAQ Answers</h3>
+              <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="edit-section-body">
+              <div class="edit-section-content">
+                <p style="font-size:0.85rem; color:var(--gray-500); margin-bottom:16px;">
+                  Edit the answers to frequently asked questions. Questions are shown as labels.
+                </p>
+                <div id="faq-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Links -->
+          <div class="edit-section" id="section-links">
+            <div class="edit-section-header" onclick="toggleSection('section-links')">
+              <h3><i class="fas fa-link"></i> Key Links</h3>
+              <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="edit-section-body">
+              <div class="edit-section-content">
+                <div class="edit-item">
+                  <div class="edit-item-content">
+                    <label>AYSO Registration URL</label>
+                    <input class="edit-input" id="edit-link-ayso" placeholder="https://www.ayso202.org/">
+                  </div>
+                </div>
+                <div class="edit-item">
+                  <div class="edit-item-content">
+                    <label>Travel Uniforms URL</label>
+                    <input class="edit-input" id="edit-link-uniforms" placeholder="https://myuniform.soccerandrugby.com/...">
+                  </div>
+                </div>
+                <div class="edit-item">
+                  <div class="edit-item-content">
+                    <label>Contact Email</label>
+                    <input class="edit-input" id="edit-link-email" placeholder="info@briarcliffsoccer.org">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Tab -->
+        <div class="tab-pane" id="tab-chat">
+          <div class="chat-container">
+            <div class="chat-file-select">
+              <label for="chatFile"><i class="fas fa-file-code"></i> Editing:</label>
+              <select id="chatFile">
+                <option value="index.html">index.html (Main Site)</option>
+                <option value="gotsport.html">gotsport.html (GotSport Guide)</option>
+                <option value="coaching.html">coaching.html (Coaching Resources)</option>
+                <option value="conduct.html">conduct.html (Codes of Conduct)</option>
+                <option value="medical.html">medical.html (Medical Release)</option>
+              </select>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+              <div class="chat-welcome">
+                <i class="fas fa-magic"></i>
+                <p>Describe what you'd like to change in plain English. For example: <em>"Add a new announcement that picture day is October 15th"</em> or <em>"Change the AYSO registration link to a new URL"</em></p>
+              </div>
+            </div>
+            <div class="chat-input-area">
+              <textarea class="chat-input" id="chatInput" placeholder="What would you like to change?" rows="1"></textarea>
+              <button class="chat-send" id="chatSend">
+                <i class="fas fa-paper-plane"></i> Send
+              </button>
+            </div>
+            <div id="chatDiffArea"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publish Bar -->
+    <div class="publish-bar hidden" id="publishBar">
+      <div class="publish-status" id="publishStatus">
+        <i class="fas fa-circle" style="font-size:0.5rem;"></i>
+        <span>No changes</span>
+      </div>
+      <div class="publish-actions">
+        <button class="btn btn-secondary" id="discardBtn" onclick="discardChanges()">
+          <i class="fas fa-undo"></i> Discard
+        </button>
+        <button class="btn btn-primary" id="publishBtn" onclick="publishChanges()">
+          <i class="fas fa-cloud-upload-alt"></i> Publish Changes
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding: 24px 0;">
+        <p>&copy; 2025 Briarcliff Youth Soccer Club. All rights reserved.</p>
+        <p><a href="admin.html" style="color: var(--blue-300);">Back to Admin Portal</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const ADMIN_HASH = 'c6468be381bb4ef3338cba9c1384a90e2547981f27a0707073989e57762ea9e5';
+
+    let currentFileContent = '';
+    let currentFileSha = '';
+    let modifiedContent = '';
+    let hasChanges = false;
+    let adminSecret = '';
+
+    // Password gate
+    async function sha256(message) {
+      const data = new TextEncoder().encode(message);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    const editorGate = document.getElementById('editorGate');
+    const editorBody = document.getElementById('editorBody');
+    const gateForm = document.getElementById('gateForm');
+    const gatePassword = document.getElementById('gatePassword');
+    const gateError = document.getElementById('gateError');
+
+    function unlock(password) {
+      editorGate.style.display = 'none';
+      editorBody.classList.add('visible');
+      adminSecret = password;
+      sessionStorage.setItem('bysc_editor', '1');
+      sessionStorage.setItem('bysc_editor_key', password);
+      loadFileContent('index.html');
+    }
+
+    function lock() {
+      editorGate.style.display = 'flex';
+      editorBody.classList.remove('visible');
+      adminSecret = '';
+      sessionStorage.removeItem('bysc_editor');
+      sessionStorage.removeItem('bysc_editor_key');
+    }
+
+    if (sessionStorage.getItem('bysc_editor') === '1') {
+      adminSecret = sessionStorage.getItem('bysc_editor_key') || '';
+      editorGate.style.display = 'none';
+      editorBody.classList.add('visible');
+      loadFileContent('index.html');
+    }
+
+    gateForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const pw = gatePassword.value;
+      const hash = await sha256(pw);
+      if (hash === ADMIN_HASH) {
+        unlock(pw);
+      } else {
+        gateError.hidden = false;
+        gatePassword.value = '';
+        gatePassword.focus();
+      }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', lock);
+
+    // Tabs
+    document.querySelectorAll('.editor-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.editor-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Section toggles
+    function toggleSection(id) {
+      document.getElementById(id).classList.toggle('open');
+    }
+
+    // Load file content from GitHub
+    async function loadFileContent(fileName) {
+      try {
+        const resp = await fetch(`/api/github?file=${fileName}`, {
+          headers: { 'X-Admin-Token': adminSecret }
+        });
+        if (!resp.ok) throw new Error('Failed to load file');
+        const data = await resp.json();
+        currentFileContent = data.content;
+        currentFileSha = data.sha;
+        modifiedContent = data.content;
+        hasChanges = false;
+        updatePublishBar();
+        parseContentToForms(data.content);
+      } catch (err) {
+        console.error('Load error:', err);
+        showPublishStatus('error', 'Failed to load file. Check API configuration.');
+      }
+    }
+
+    // Parse index.html content into form fields
+    function parseContentToForms(html) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+
+      // Announcements
+      const tickerItems = doc.querySelectorAll('.ticker-item');
+      const list = document.getElementById('announcements-list');
+      list.innerHTML = '';
+      tickerItems.forEach((item, i) => {
+        addAnnouncementItem(item.textContent.trim(), i);
+      });
+
+      // Hero CTA
+      const heroCta = doc.querySelector('.hero-buttons .btn-accent');
+      if (heroCta) {
+        const ctaText = heroCta.textContent.trim();
+        document.getElementById('edit-hero-cta').value = ctaText;
+      }
+
+      // Registration link
+      const regLinks = doc.querySelectorAll('a[href*="ayso202.org"]');
+      if (regLinks.length > 0) {
+        document.getElementById('edit-reg-link').value = regLinks[0].getAttribute('href');
+        document.getElementById('edit-link-ayso').value = regLinks[0].getAttribute('href');
+      }
+
+      // Prices
+      const aysoPrice = doc.querySelector('#ayso .program-price');
+      if (aysoPrice) {
+        const priceText = aysoPrice.childNodes[0]?.textContent.trim() || '';
+        document.getElementById('edit-ayso-price').value = priceText;
+      }
+      const travelPrice = doc.querySelector('#travel .program-price');
+      if (travelPrice) {
+        const priceText = travelPrice.childNodes[0]?.textContent.trim() || '';
+        document.getElementById('edit-travel-price').value = priceText;
+      }
+
+      // Uniform link
+      const uniformLinks = doc.querySelectorAll('a[href*="myuniform"]');
+      if (uniformLinks.length > 0) {
+        document.getElementById('edit-link-uniforms').value = uniformLinks[0].getAttribute('href');
+      }
+
+      // Contact email
+      const emailLinks = doc.querySelectorAll('a[href^="mailto:"]');
+      if (emailLinks.length > 0) {
+        document.getElementById('edit-link-email').value = emailLinks[0].getAttribute('href').replace('mailto:', '');
+      }
+
+      // FAQ
+      const faqItems = doc.querySelectorAll('.accordion-item');
+      const faqList = document.getElementById('faq-list');
+      faqList.innerHTML = '';
+      faqItems.forEach((item, i) => {
+        const question = item.querySelector('.accordion-header')?.childNodes[0]?.textContent.trim() || '';
+        const answer = item.querySelector('.accordion-body p')?.textContent.trim() || '';
+        addFaqItem(question, answer, i);
+      });
+
+      document.getElementById('publishBar').classList.remove('hidden');
+    }
+
+    function addAnnouncementItem(text, index) {
+      const list = document.getElementById('announcements-list');
+      const div = document.createElement('div');
+      div.className = 'edit-item';
+      div.innerHTML = `
+        <div class="edit-item-num">${index + 1}</div>
+        <div class="edit-item-content">
+          <input class="edit-input announcement-input" value="${escapeAttr(text)}" placeholder="Enter announcement text" oninput="markChanged()">
+        </div>
+        <div class="edit-item-actions">
+          <button class="btn-icon danger" onclick="this.closest('.edit-item').remove(); reindexAnnouncements(); markChanged();" title="Remove">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      `;
+      list.appendChild(div);
+    }
+
+    function addAnnouncement() {
+      const list = document.getElementById('announcements-list');
+      const count = list.querySelectorAll('.edit-item').length;
+      addAnnouncementItem('', count);
+      markChanged();
+      const inputs = list.querySelectorAll('.announcement-input');
+      inputs[inputs.length - 1].focus();
+    }
+
+    function reindexAnnouncements() {
+      document.querySelectorAll('#announcements-list .edit-item-num').forEach((el, i) => {
+        el.textContent = i + 1;
+      });
+    }
+
+    function addFaqItem(question, answer, index) {
+      const list = document.getElementById('faq-list');
+      const div = document.createElement('div');
+      div.className = 'edit-item';
+      div.style.flexDirection = 'column';
+      div.innerHTML = `
+        <div style="width:100%;">
+          <label style="display:block; font-size:0.82rem; font-weight:600; color:var(--gray-800); margin-bottom:6px;">
+            Q${index + 1}: ${escapeHtml(question)}
+          </label>
+          <textarea class="edit-input faq-answer" rows="2" oninput="markChanged()">${escapeHtml(answer)}</textarea>
+        </div>
+      `;
+      list.appendChild(div);
+    }
+
+    // Rebuild HTML from form values
+    function buildModifiedContent() {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(currentFileContent, 'text/html');
+
+      // Announcements
+      const ticker = doc.querySelector('.ticker');
+      if (ticker) {
+        const inputs = document.querySelectorAll('.announcement-input');
+        ticker.innerHTML = '';
+        inputs.forEach(input => {
+          if (input.value.trim()) {
+            const span = doc.createElement('span');
+            span.className = 'ticker-item';
+            span.textContent = input.value.trim();
+            ticker.appendChild(span);
+          }
+        });
+      }
+
+      // Hero CTA text
+      const heroCta = doc.querySelector('.hero-buttons .btn-accent');
+      if (heroCta) {
+        const icon = heroCta.querySelector('i');
+        const newText = document.getElementById('edit-hero-cta').value.trim();
+        if (newText && icon) {
+          heroCta.innerHTML = '';
+          heroCta.appendChild(icon);
+          heroCta.appendChild(document.createTextNode(' ' + newText));
+        }
+      }
+
+      // Registration link
+      const newRegLink = document.getElementById('edit-reg-link').value.trim();
+      if (newRegLink) {
+        doc.querySelectorAll('a[href*="ayso202.org"]').forEach(a => {
+          a.setAttribute('href', newRegLink);
+        });
+      }
+
+      // Prices
+      const newAysoPrice = document.getElementById('edit-ayso-price').value.trim();
+      if (newAysoPrice) {
+        const el = doc.querySelector('#ayso .program-price');
+        if (el) {
+          const span = el.querySelector('span');
+          el.innerHTML = newAysoPrice + ' ';
+          if (span) el.appendChild(span);
+        }
+      }
+      const newTravelPrice = document.getElementById('edit-travel-price').value.trim();
+      if (newTravelPrice) {
+        const el = doc.querySelector('#travel .program-price');
+        if (el) {
+          const span = el.querySelector('span');
+          el.innerHTML = newTravelPrice + ' ';
+          if (span) el.appendChild(span);
+        }
+      }
+
+      // Uniform link
+      const newUniformLink = document.getElementById('edit-link-uniforms').value.trim();
+      if (newUniformLink) {
+        doc.querySelectorAll('a[href*="myuniform"]').forEach(a => {
+          a.setAttribute('href', newUniformLink);
+        });
+      }
+
+      // Email
+      const newEmail = document.getElementById('edit-link-email').value.trim();
+      if (newEmail) {
+        doc.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+          a.setAttribute('href', 'mailto:' + newEmail);
+        });
+      }
+
+      // FAQ answers
+      const faqAnswers = document.querySelectorAll('.faq-answer');
+      const faqBodies = doc.querySelectorAll('.accordion-body p');
+      faqAnswers.forEach((textarea, i) => {
+        if (faqBodies[i] && textarea.value.trim()) {
+          faqBodies[i].textContent = textarea.value.trim();
+        }
+      });
+
+      return '<!DOCTYPE html>\n' + doc.documentElement.outerHTML;
+    }
+
+    function markChanged() {
+      hasChanges = true;
+      updatePublishBar();
+    }
+
+    function updatePublishBar() {
+      const status = document.getElementById('publishStatus');
+      if (hasChanges) {
+        status.className = 'publish-status modified';
+        status.innerHTML = '<i class="fas fa-exclamation-circle" style="font-size:0.7rem;"></i> <span>Unsaved changes</span>';
+      } else {
+        status.className = 'publish-status';
+        status.innerHTML = '<i class="fas fa-check-circle" style="font-size:0.7rem;"></i> <span>All changes published</span>';
+      }
+    }
+
+    function showPublishStatus(type, message) {
+      const status = document.getElementById('publishStatus');
+      status.className = 'publish-status ' + type;
+      const icon = type === 'success' ? 'check-circle' : type === 'error' ? 'times-circle' : 'circle';
+      status.innerHTML = `<i class="fas fa-${icon}" style="font-size:0.7rem;"></i> <span>${message}</span>`;
+    }
+
+    async function publishChanges() {
+      const btn = document.getElementById('publishBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="loading-spinner"></span> Publishing...';
+
+      try {
+        modifiedContent = buildModifiedContent();
+
+        const resp = await fetch('/api/github', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Admin-Token': adminSecret,
+          },
+          body: JSON.stringify({
+            file: 'index.html',
+            content: modifiedContent,
+            sha: currentFileSha,
+            message: 'Update content via BYSC Website Editor',
+          }),
+        });
+
+        if (!resp.ok) throw new Error('Publish failed');
+
+        const result = await resp.json();
+        currentFileContent = modifiedContent;
+        currentFileSha = result.sha;
+        hasChanges = false;
+        showPublishStatus('success', 'Published! Site will update in ~30 seconds.');
+      } catch (err) {
+        showPublishStatus('error', 'Publish failed: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Publish Changes';
+      }
+    }
+
+    function discardChanges() {
+      if (!confirm('Discard all changes and reload from the live site?')) return;
+      loadFileContent('index.html');
+    }
+
+    // Chat functionality
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+    const chatDiffArea = document.getElementById('chatDiffArea');
+
+    let pendingChatContent = '';
+
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendChatMessage();
+      }
+    });
+
+    chatSend.addEventListener('click', sendChatMessage);
+
+    async function sendChatMessage() {
+      const prompt = chatInput.value.trim();
+      if (!prompt) return;
+
+      const fileName = document.getElementById('chatFile').value;
+
+      addChatBubble('user', prompt);
+      chatInput.value = '';
+      chatSend.disabled = true;
+      chatSend.innerHTML = '<span class="loading-spinner"></span>';
+
+      addChatBubble('assistant', '<i class="fas fa-spinner fa-spin"></i> Thinking...');
+
+      try {
+        // First, get current file content
+        const fileResp = await fetch(`/api/github?file=${fileName}`, {
+          headers: { 'X-Admin-Token': adminSecret }
+        });
+        if (!fileResp.ok) throw new Error('Could not load file');
+        const fileData = await fileResp.json();
+
+        // Send to AI
+        const aiResp = await fetch('/api/prompt', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Admin-Token': adminSecret,
+          },
+          body: JSON.stringify({
+            prompt: prompt,
+            fileContent: fileData.content,
+            fileName: fileName,
+          }),
+        });
+
+        const aiData = await aiResp.json();
+
+        removeLastBubble();
+
+        if (!aiResp.ok || aiData.error) {
+          addChatBubble('assistant', `<i class="fas fa-exclamation-triangle" style="color:var(--orange-400);"></i> ${aiData.error || 'Something went wrong. Try rephrasing your request.'}`);
+          return;
+        }
+
+        pendingChatContent = aiData.updatedContent;
+        addChatBubble('assistant', `I've prepared the changes to <strong>${fileName}</strong>. Review the preview below and click <strong>Approve &amp; Publish</strong> if it looks good.`);
+        showDiffPreview(fileData.content, aiData.updatedContent, fileName, fileData.sha);
+      } catch (err) {
+        removeLastBubble();
+        addChatBubble('assistant', `<i class="fas fa-times-circle" style="color:#dc2626;"></i> Error: ${err.message}`);
+      } finally {
+        chatSend.disabled = false;
+        chatSend.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
+      }
+    }
+
+    function addChatBubble(role, html) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'chat-msg ' + role;
+
+      const avatar = document.createElement('div');
+      avatar.className = 'chat-msg-avatar';
+      avatar.innerHTML = role === 'assistant' ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
+
+      const bubble = document.createElement('div');
+      bubble.className = 'chat-msg-bubble';
+      bubble.innerHTML = html;
+
+      wrapper.appendChild(avatar);
+      wrapper.appendChild(bubble);
+
+      const welcome = chatMessages.querySelector('.chat-welcome');
+      if (welcome) welcome.remove();
+
+      chatMessages.appendChild(wrapper);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function removeLastBubble() {
+      const msgs = chatMessages.querySelectorAll('.chat-msg');
+      if (msgs.length > 0) msgs[msgs.length - 1].remove();
+    }
+
+    function showDiffPreview(oldContent, newContent, fileName, sha) {
+      const oldLines = oldContent.split('\n');
+      const newLines = newContent.split('\n');
+
+      let diffHtml = '';
+      const maxLines = Math.max(oldLines.length, newLines.length);
+      let changesFound = 0;
+
+      for (let i = 0; i < maxLines; i++) {
+        const oldLine = oldLines[i] || '';
+        const newLine = newLines[i] || '';
+        if (oldLine !== newLine) {
+          changesFound++;
+          if (oldLine) diffHtml += `<div class="diff-removed">- ${escapeHtml(oldLine)}</div>`;
+          if (newLine) diffHtml += `<div class="diff-added">+ ${escapeHtml(newLine)}</div>`;
+        }
+      }
+
+      if (changesFound === 0) {
+        diffHtml = '<p style="color:var(--gray-500); text-align:center; padding:20px;">No changes detected.</p>';
+      }
+
+      chatDiffArea.innerHTML = `
+        <div class="diff-preview">
+          <div class="diff-header">
+            <i class="fas fa-code-compare"></i>
+            Changes to ${fileName} (${changesFound} line${changesFound !== 1 ? 's' : ''} modified)
+          </div>
+          <div class="diff-body">${diffHtml}</div>
+          <div class="diff-actions">
+            <button class="btn btn-secondary" onclick="chatDiffArea.innerHTML=''; pendingChatContent='';">
+              <i class="fas fa-times"></i> Dismiss
+            </button>
+            <button class="btn btn-primary" onclick="approveAndPublish('${fileName}', '${sha}')">
+              <i class="fas fa-check"></i> Approve &amp; Publish
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    async function approveAndPublish(fileName, sha) {
+      if (!pendingChatContent) return;
+
+      const btns = chatDiffArea.querySelectorAll('.btn');
+      btns.forEach(b => { b.disabled = true; });
+      btns[1].innerHTML = '<span class="loading-spinner"></span> Publishing...';
+
+      try {
+        const resp = await fetch('/api/github', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Admin-Token': adminSecret,
+          },
+          body: JSON.stringify({
+            file: fileName,
+            content: pendingChatContent,
+            sha: sha,
+            message: `Update ${fileName} via BYSC Chat Editor`,
+          }),
+        });
+
+        if (!resp.ok) throw new Error('Publish failed');
+
+        chatDiffArea.innerHTML = '';
+        pendingChatContent = '';
+        addChatBubble('assistant', '<i class="fas fa-check-circle" style="color:#16a34a;"></i> <strong>Published!</strong> Changes will be live in about 30 seconds.');
+
+        if (fileName === 'index.html') {
+          loadFileContent('index.html');
+        }
+      } catch (err) {
+        addChatBubble('assistant', `<i class="fas fa-times-circle" style="color:#dc2626;"></i> Publish failed: ${err.message}`);
+      }
+    }
+
+    // Listen for form changes
+    document.querySelectorAll('.edit-input').forEach(input => {
+      input.addEventListener('input', markChanged);
+    });
+
+    // Nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Utilities
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+    function escapeAttr(str) {
+      return str.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+  </script>
+</body>
+</html>
