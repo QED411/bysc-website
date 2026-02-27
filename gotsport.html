@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GotSport Guide | BYSC</title>
+  <link rel="icon" type="image/png" href="bysc-logo.png">
+  <link rel="apple-touch-icon" href="bysc-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <img src="bysc-logo.png" alt="BYSC Logo" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-main">BYSC</span>
+          <span class="logo-sub">Briarcliff Youth Soccer</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="index.html#programs">Programs <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#ayso">AYSO Program</a></li>
+            <li><a href="index.html#travel">Travel Soccer</a></li>
+            <li><a href="https://system.gotsport.com/org_event/events/45845/clubs/3522" target="_blank">Club Schedule</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Resources <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="gotsport.html" class="active-link">GotSport Guide</a></li>
+            <li><a href="coaching.html">Coaching Resources</a></li>
+            <li><a href="conduct.html">Codes of Conduct</a></li>
+            <li><a href="medical.html">Medical Release</a></li>
+            <li><a href="https://myuniform.soccerandrugby.com/store/club/briarcliff-youth-soccer-club" target="_blank">Travel Uniforms</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="index.html#fields">Fields</a></li>
+        <li><a href="admin.html"><i class="fas fa-lock"></i> Admin</a></li>
+        <li><a href="https://www.ayso202.org/" target="_blank" class="btn btn-nav">Register Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="admin-header-section">
+    <div class="container">
+      <div class="admin-header-card">
+        <div class="admin-header-text">
+          <span class="section-tag">Travel Soccer</span>
+          <h1>GotSport Guide</h1>
+          <p>Everything coaches, managers, and parents need for WYSL travel soccer game day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="admin-quick-links">
+    <div class="container">
+      <div class="admin-links-grid">
+        <a href="https://www.gotsport.com" target="_blank" class="admin-link-card">
+          <div class="admin-link-icon"><i class="fas fa-sign-in-alt"></i></div>
+          <h3>GotSport Login</h3>
+          <p>Log into your GotSport account</p>
+          <span class="admin-link-action">Open GotSport <i class="fas fa-external-link-alt"></i></span>
+        </a>
+        <a href="https://support.gotsport.com/" target="_blank" class="admin-link-card">
+          <div class="admin-link-icon"><i class="fas fa-life-ring"></i></div>
+          <h3>GotSport Support</h3>
+          <p>Help articles, tutorials &amp; contact support</p>
+          <span class="admin-link-action">Get Help <i class="fas fa-external-link-alt"></i></span>
+        </a>
+        <a href="https://system.gotsport.com/org_event/events/45845/clubs/3522" target="_blank" class="admin-link-card">
+          <div class="admin-link-icon"><i class="fas fa-calendar-alt"></i></div>
+          <h3>BYSC Club Schedule</h3>
+          <p>Full schedule for all BYSC travel teams</p>
+          <span class="admin-link-action">View Schedule <i class="fas fa-external-link-alt"></i></span>
+        </a>
+        <a href="https://system.gotsport.com/org_event/events/45845/fields" target="_blank" class="admin-link-card">
+          <div class="admin-link-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h3>WYSL Field Directory</h3>
+          <p>Addresses &amp; directions for all league fields</p>
+          <span class="admin-link-action">Find Fields <i class="fas fa-external-link-alt"></i></span>
+        </a>
+        <a href="https://system.gotsport.com/org_event/events/45845/submit_pins/new" target="_blank" class="admin-link-card">
+          <div class="admin-link-icon"><i class="fas fa-clipboard-check"></i></div>
+          <h3>Report Scores</h3>
+          <p>Submit match results after each game</p>
+          <span class="admin-link-action">Report Now <i class="fas fa-external-link-alt"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Printing Match Cards & Coach IDs -->
+  <section class="admin-section" id="match-cards">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Game Day Prep</span>
+        <h2>Printing Match Cards &amp; Coach IDs</h2>
+      </div>
+      <div class="admin-instructions">
+
+        <div class="instruction-card">
+          <div class="instruction-number">1</div>
+          <div class="instruction-body">
+            <h4>Set Home or Away Game Day Roster</h4>
+            <p>Log into <a href="https://www.gotsport.com" target="_blank">GotSport</a> and navigate to <strong>Team Management &gt; Matches</strong>. Select the <strong>WYSL Fall</strong> schedule, then click the <strong>3 dots</strong> next to the game. Select <strong>Home Day Match Roster</strong> or <strong>Away Day Match Roster</strong> depending on your designation.</p>
+            <p>Select all attending players and any borrowed subs, then click <strong>Add to Match Day Roster</strong>.</p>
+            <p style="margin-top:8px; padding:10px 14px; background:var(--blue-50); border-radius:var(--radius-sm); font-size:0.9rem;">
+              <i class="fas fa-info-circle" style="color:var(--blue-500);"></i>
+              <strong>Note:</strong> Absent players don&rsquo;t need to be removed &mdash; just make sure you stay within the roster limits: <strong>14</strong> for U9/U10, <strong>16</strong> for U11/U12, <strong>18</strong> for U13/U14.
+            </p>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-number">2</div>
+          <div class="instruction-body">
+            <h4>Print Match Card</h4>
+            <p>From the Attending list, click <strong>&ldquo;Photo Match Card&rdquo;</strong> and print. The match card should include a QR code, player photos, and all coaches and players listed.</p>
+            <p><strong>Alternate method:</strong> Go back to the <strong>3 dots &gt; Print Match Card</strong>, select <strong>Photo</strong>, click <strong>Export</strong>, and print.</p>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-number">3</div>
+          <div class="instruction-body">
+            <h4>Print Coach ID Cards <span style="font-weight:400; font-size:0.85rem; color:var(--gray-500);">(one-time)</span></h4>
+            <p>Go to <strong>Team Management</strong> &gt; select your team &gt; <strong>Rosters</strong>. Select the <strong>WYSL team registration</strong>, then click <strong>Documents/IDs &gt; ID Cards</strong>.</p>
+            <p>Print and cut along the perforation. Coaches should keep their ID cards for all games throughout the season.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Confirming Games -->
+  <section class="admin-section admin-section-alt" id="confirming-games">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Before the Game</span>
+        <h2>Confirming Games</h2>
+      </div>
+      <div class="admin-instructions">
+
+        <div class="instruction-card">
+          <div class="instruction-number">1</div>
+          <div class="instruction-body">
+            <h4>Reach Out to the Opposing Team</h4>
+            <p>Several days before the game, contact the opposing team&rsquo;s coach or manager via the GotSport chat feature to confirm game details.</p>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-number">2</div>
+          <div class="instruction-body">
+            <h4>Use GotSport Chat</h4>
+            <p>Go to <strong>Team Management &gt; Matches</strong>, select the <strong>WYSL schedule</strong>, and click the <strong>chat icon</strong> next to the upcoming game to start a conversation with the opposing team.</p>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-number">3</div>
+          <div class="instruction-body">
+            <h4>Confirm Details &amp; Uniform Colors</h4>
+            <p>Confirm the game time, location, and uniform colors. If there is a jersey color conflict, the <strong>home team</strong> is responsible for switching to an alternate.</p>
+          </div>
+        </div>
+
+        <div class="instruction-card" style="border-color: var(--orange-300); background: #fff8f3;">
+          <div class="instruction-number" style="background: var(--orange-400);"><i class="fas fa-exclamation-triangle" style="font-size:0.9rem;"></i></div>
+          <div class="instruction-body">
+            <h4>Home Games on School Fields</h4>
+            <p>For home games played on school property, remind the opposing team that <strong>NO DOGS are allowed</strong> on school grounds. This is a district policy and must be communicated in advance.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Borrowing Players -->
+  <section class="admin-section" id="borrowing-players">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Roster Rules</span>
+        <h2>Borrowing Players</h2>
+      </div>
+      <div class="admin-instructions">
+
+        <div class="instruction-card">
+          <div class="instruction-number"><i class="fas fa-users" style="font-size:0.9rem;"></i></div>
+          <div class="instruction-body">
+            <h4>Eligibility &mdash; U9 through U11</h4>
+            <p>Teams in the <strong>U9, U10, and U11</strong> age groups can borrow players from another team in the <strong>same age group, any division</strong>.</p>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-number"><i class="fas fa-users" style="font-size:0.9rem;"></i></div>
+          <div class="instruction-body">
+            <h4>Eligibility &mdash; U12 through U14</h4>
+            <p>Teams in the <strong>U12, U13, and U14</strong> age groups can borrow from the <strong>same age group in a LOWER division</strong>, or from <strong>any team in the age group below</strong>.</p>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-number"><i class="fas fa-hashtag" style="font-size:0.9rem;"></i></div>
+          <div class="instruction-body">
+            <h4>Limits</h4>
+            <ul class="checklist">
+              <li><i class="fas fa-check-square"></i> Maximum <strong>3 borrowed players per week</strong></li>
+              <li><i class="fas fa-check-square"></i> Must stay within roster limits: <strong>14</strong> (U9/U10), <strong>16</strong> (U11/U12), <strong>18</strong> (U13/U14)</li>
+              <li><i class="fas fa-check-square"></i> A player can only be borrowed <strong>3 times total</strong> during the season</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-number">1</div>
+          <div class="instruction-body">
+            <h4>How to Add a Borrowed Player</h4>
+            <p>Notify the <strong>Travel Director</strong> by <strong>Thursday</strong> before the game with the name(s) of the player(s) you need to borrow. The league processes substitute requests during the week.</p>
+          </div>
+        </div>
+
+        <div class="instruction-card">
+          <div class="instruction-number">2</div>
+          <div class="instruction-body">
+            <h4>Borrowed Player Appears on Roster</h4>
+            <p>Once approved, the borrowed player will appear on your GotSport roster for that specific game. Download your match card &mdash; borrowed players will be <strong>highlighted</strong> on the printout.</p>
+          </div>
+        </div>
+
+        <div class="instruction-card" style="border-color: var(--orange-300); background: #fff8f3;">
+          <div class="instruction-number" style="background: var(--orange-400);"><i class="fas fa-exclamation-triangle" style="font-size:0.9rem;"></i></div>
+          <div class="instruction-body">
+            <h4>Important Deadlines</h4>
+            <p>The league <strong>will not process</strong> substitute requests after <strong>Friday close of business</strong>. Referees will not allow any player onto the field who is not listed on the match card.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Reporting Scores -->
+  <section class="admin-section admin-section-alt" id="reporting-scores">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">After the Game</span>
+        <h2>Reporting Scores</h2>
+      </div>
+      <div class="admin-instructions">
+
+        <div class="instruction-card">
+          <div class="instruction-number"><i class="fas fa-clipboard-check" style="font-size:0.9rem;"></i></div>
+          <div class="instruction-body">
+            <h4>Submit Your Match Result</h4>
+            <p>After each game, visit the score reporting page and enter your <strong>team PIN</strong> to submit the final result. Both teams should report scores promptly.</p>
+            <a href="https://system.gotsport.com/org_event/events/45845/submit_pins/new" target="_blank" class="btn btn-primary btn-sm" style="margin-top:10px;">
+              <i class="fas fa-clipboard-check"></i> Report Scores <i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding: 24px 0;">
+        <p>&copy; 2025 Briarcliff Youth Soccer Club. All rights reserved.</p>
+        <p><a href="index.html" style="color: var(--blue-300);">Back to Main Site</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+  </script>
+</body>
+</html>

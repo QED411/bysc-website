@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coaching Resources | BYSC</title>
+  <link rel="icon" type="image/png" href="bysc-logo.png">
+  <link rel="apple-touch-icon" href="bysc-logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .req-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .req-card:hover {
+      border-color: var(--blue-300);
+      box-shadow: var(--shadow-sm);
+    }
+    .req-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--blue-50);
+      color: var(--blue-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin: 0 auto 14px;
+    }
+    .req-card h4 {
+      font-size: 0.95rem;
+      color: var(--gray-900);
+      margin-bottom: 6px;
+    }
+    .req-card p {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .req-freq {
+      display: inline-block;
+      padding: 3px 12px;
+      background: var(--orange-400);
+      color: var(--white);
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .req-link-wrap {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .course-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+    }
+    .course-card:hover {
+      border-color: var(--blue-300);
+      box-shadow: var(--shadow-sm);
+    }
+    .course-card .doc-icon {
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
+    }
+    .course-card .doc-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .course-card .doc-info h4 {
+      font-size: 0.95rem;
+      color: var(--gray-900);
+      margin-bottom: 6px;
+    }
+    .course-card .doc-info p {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <img src="bysc-logo.png" alt="BYSC Logo" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-main">BYSC</span>
+          <span class="logo-sub">Briarcliff Youth Soccer</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="index.html#programs">Programs <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#ayso">AYSO Program</a></li>
+            <li><a href="index.html#travel">Travel Soccer</a></li>
+            <li><a href="https://system.gotsport.com/org_event/events/45845/clubs/3522" target="_blank">Club Schedule</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Resources <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="gotsport.html">GotSport Guide</a></li>
+            <li><a href="coaching.html" class="active-link">Coaching Resources</a></li>
+            <li><a href="conduct.html">Codes of Conduct</a></li>
+            <li><a href="medical.html">Medical Release</a></li>
+            <li><a href="https://myuniform.soccerandrugby.com/store/club/briarcliff-youth-soccer-club" target="_blank">Travel Uniforms</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="index.html#fields">Fields</a></li>
+        <li><a href="admin.html"><i class="fas fa-lock"></i> Admin</a></li>
+        <li><a href="https://www.ayso202.org/" target="_blank" class="btn btn-nav">Register Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="admin-header-section">
+    <div class="container">
+      <div class="admin-header-card" style="justify-content:center; text-align:center;">
+        <div class="admin-header-text">
+          <span class="section-tag">For Coaches &amp; Managers</span>
+          <h1>Coaching Resources</h1>
+          <p>WYSL requirements, training courses, and tools for BYSC volunteer coaches.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WYSL Coaching Requirements -->
+  <section class="admin-section">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Compliance</span>
+        <h2>WYSL Coaching Requirements</h2>
+        <p style="text-align:left; margin:0;">All travel coaches and managers must complete the following before being added to a team roster.</p>
+      </div>
+      <div class="contacts-grid">
+        <div class="req-card">
+          <div class="req-icon"><i class="fas fa-fingerprint"></i></div>
+          <h4>Background Check</h4>
+          <p>Required criminal background screening for all adults working with players.</p>
+          <span class="req-freq">Every 2 Years</span>
+        </div>
+        <div class="req-card">
+          <div class="req-icon"><i class="fas fa-brain"></i></div>
+          <h4>Heads Up Concussion Training</h4>
+          <p>CDC concussion awareness course for recognizing and responding to head injuries.</p>
+          <span class="req-freq">Every 2 Years</span>
+        </div>
+        <div class="req-card">
+          <div class="req-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>SafeSport Certification</h4>
+          <p>U.S. Center for SafeSport abuse prevention training to protect young athletes.</p>
+          <span class="req-freq">Yearly</span>
+        </div>
+        <div class="req-card">
+          <div class="req-icon"><i class="fas fa-certificate"></i></div>
+          <h4>Coaching License</h4>
+          <p>US Soccer Grassroots coaching license appropriate to the age group being coached.</p>
+          <span class="req-freq">Required for Roster</span>
+        </div>
+        <div class="req-card">
+          <div class="req-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h4>Coach Orientation Course</h4>
+          <p>WYSL orientation webinar covering league rules, registration, and game-day procedures.</p>
+          <span class="req-freq">One-Time Only</span>
+        </div>
+        <div class="req-card">
+          <div class="req-icon"><i class="fas fa-heart"></i></div>
+          <h4>Positive Coaching Alliance (PCA)</h4>
+          <p>Online workshop focused on positive youth development and creating a healthy team culture.</p>
+          <span class="req-freq">Every 2 Years</span>
+        </div>
+      </div>
+      <div class="req-link-wrap">
+        <a href="https://www.wyslsoccer.org/coaching-requirements" target="_blank" class="btn btn-primary btn-lg">
+          <i class="fas fa-external-link-alt"></i> View Full Requirements on WYSL
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses & Training -->
+  <section class="admin-section admin-section-alt">
+    <div class="container">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Education</span>
+        <h2>Courses &amp; Training</h2>
+        <p style="text-align:left; margin:0;">Recommended and required courses for BYSC coaches and team managers.</p>
+      </div>
+      <div class="doc-grid">
+        <div class="course-card">
+          <div class="doc-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="doc-info">
+            <h4>Coaching Courses</h4>
+            <p>US Soccer Grassroots Licenses (4v4, 7v7, 9v9, 11v11) &mdash; approximately 4-hour commitment each. You must complete the free introductory module first before enrolling in an age-specific course.</p>
+            <a href="https://www.wyslsoccer.org/services-2" target="_blank" class="btn btn-primary btn-sm">
+              <i class="fas fa-external-link-alt"></i> View Courses
+            </a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="doc-icon"><i class="fas fa-play-circle"></i></div>
+          <div class="doc-info">
+            <h4>Coach Orientation Course</h4>
+            <p>One-time WYSL orientation webinar (~60 min) covering league rules, registration, and game-day procedures. Mandatory for all coaches, encouraged for managers.</p>
+            <a href="https://www.wyslsoccer.org/2-hour-orientation" target="_blank" class="btn btn-primary btn-sm">
+              <i class="fas fa-external-link-alt"></i> Register for Orientation
+            </a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="doc-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <div class="doc-info">
+            <h4>Supporting Player Mental Health</h4>
+            <p>PCA / JED Foundation guide for coaches on recognizing struggling athletes and connecting them to help.</p>
+            <a href="https://positivecoach.org/resource-zone/the-coaches-guide-to-supporting-high-school-athlete-mental-health/" target="_blank" class="btn btn-primary btn-sm">
+              <i class="fas fa-external-link-alt"></i> Read Guide
+            </a>
+          </div>
+        </div>
+        <div class="course-card">
+          <div class="doc-icon"><i class="fas fa-comment-dots"></i></div>
+          <div class="doc-info">
+            <h4>Coach Comment Form</h4>
+            <p>WYSL game feedback form for reporting coaching issues or concerns observed during matches.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeY2cU4jwl1cJhicM0bdmLwvoSeFq5n_Fvzs3jmd-IbtRyfVg/viewform" target="_blank" class="btn btn-primary btn-sm">
+              <i class="fas fa-external-link-alt"></i> Open Form
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WYSL Main Site CTA -->
+  <section class="admin-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-content">
+          <h2>WYSL Main Site</h2>
+          <p>The Westchester Youth Soccer League website is the comprehensive resource for all coach, parent, and manager needs including schedules, field closings, rules, referee info, and more.</p>
+          <a href="https://www.wyslsoccer.org/" target="_blank" class="btn btn-accent btn-lg">
+            <i class="fas fa-external-link-alt"></i> Visit WYSL
+          </a>
+        </div>
+        <div class="cta-icon">
+          <i class="fas fa-futbol"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding: 24px 0;">
+        <p>&copy; 2025 Briarcliff Youth Soccer Club. All rights reserved.</p>
+        <p><a href="index.html" style="color: var(--blue-300);">Back to Main Site</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
